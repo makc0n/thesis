@@ -65,6 +65,7 @@
 		7F5FB6D8251512E400E5EBD1 /* GetAllWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FB6D7251512E400E5EBD1 /* GetAllWords.swift */; };
 		7F69E2E02510C0C900C5B5BA /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69E2DF2510C0C900C5B5BA /* CollectionRepository.swift */; };
 		7F746B63251525CA0086739C /* GetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F746B62251525CA0086739C /* GetCollection.swift */; };
+		7F7795FE25C4BECF00F3B31E /* MulptiplicationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7795FD25C4BECF00F3B31E /* MulptiplicationItem.swift */; };
 		7F7DD754243661250074DD31 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7DD753243661250074DD31 /* Statistic.swift */; };
 		7F985FCF23F5F6ED0099951E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F985FCE23F5F6ED0099951E /* AppDelegate.swift */; };
 		7F985FD623F5F6ED0099951E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F985FD423F5F6ED0099951E /* Main.storyboard */; };
@@ -176,6 +177,7 @@
 		7F5FB6D7251512E400E5EBD1 /* GetAllWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllWords.swift; sourceTree = "<group>"; };
 		7F69E2DF2510C0C900C5B5BA /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
 		7F746B62251525CA0086739C /* GetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCollection.swift; sourceTree = "<group>"; };
+		7F7795FD25C4BECF00F3B31E /* MulptiplicationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulptiplicationItem.swift; sourceTree = "<group>"; };
 		7F7DD753243661250074DD31 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		7F985FCB23F5F6ED0099951E /* Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F985FCE23F5F6ED0099951E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,14 @@
 			path = ReuseableUI;
 			sourceTree = "<group>";
 		};
+		7F7795FC25C4BEB700F3B31E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7F7795FD25C4BECF00F3B31E /* MulptiplicationItem.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		7F985FC223F5F6ED0099951E = {
 			isa = PBXGroup;
 			children = (
@@ -397,19 +407,9 @@
 				7FC71F7B23F5F9D800A11196 /* Resources */,
 				7F5FA22523F9F15A00647412 /* ReuseableUI */,
 				7F1A751D241E41E30019F992 /* Ext */,
-				7FC71F7A23F5F9B600A11196 /* App */,
+				7FC71F7A23F5F9B600A11196 /* Presentation */,
 			);
 			path = Thesis;
-			sourceTree = "<group>";
-		};
-		7F985FE223F5F79E0099951E /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				7FE127AC23FCD83400A4C24B /* Collection */,
-				7F5FA21C23F9EE5000647412 /* Test */,
-				7F985FE323F5F7AC0099951E /* Main */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		7F985FE323F5F7AC0099951E /* Main */ = {
@@ -473,12 +473,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		7FC71F7A23F5F9B600A11196 /* App */ = {
+		7FC71F7A23F5F9B600A11196 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				7F985FE223F5F79E0099951E /* UI */,
+				7FE127AC23FCD83400A4C24B /* Collection */,
+				7F5FA21C23F9EE5000647412 /* Test */,
+				7F985FE323F5F7AC0099951E /* Main */,
 			);
-			path = App;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		7FC71F7B23F5F9D800A11196 /* Resources */ = {
@@ -625,6 +627,7 @@
 		7FF45C8824EE951700D98F21 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F7795FC25C4BEB700F3B31E /* UI */,
 				7F3850132466F337005AD488 /* Web */,
 				7FF45C8A24EE953500D98F21 /* Realm */,
 				7FF45C8924EE953000D98F21 /* Local */,
@@ -846,6 +849,7 @@
 				7F02CD8E24EEB54D001E7A83 /* Word.swift in Sources */,
 				7FD0512123FF1882002859B1 /* CornerButton.swift in Sources */,
 				7F985FCF23F5F6ED0099951E /* AppDelegate.swift in Sources */,
+				7F7795FE25C4BECF00F3B31E /* MulptiplicationItem.swift in Sources */,
 				7F387C1724303A9B00D8D8EF /* ConstructorTestViewModel.swift in Sources */,
 				7F387C1524303A7B00D8D8EF /* ConstructorTestViewController.swift in Sources */,
 				7F1A751A241E3D930019F992 /* RealmRequest.swift in Sources */,
