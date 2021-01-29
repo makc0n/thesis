@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Тест-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="TestListViewController" id="BYZ-38-t0r" customClass="TestListViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUm-zg-BQG" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                <rect key="frame" x="16" y="104" width="288" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="0.62745098039215685" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="9VC-tA-mhT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Быстрый тест">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SI-Eo-tM8" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                <rect key="frame" x="16" y="172" width="288" height="52"/>
+                                <color key="backgroundColor" red="0.1058823529" green="0.36078431370000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="RyO-0b-zOE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Свой тест">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DI-pS-FMK" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                <rect key="frame" x="16" y="240" width="288" height="52"/>
+                                <color key="backgroundColor" red="0.1058823529" green="0.36078431370000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="UCJ-sT-1x4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Настройки">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1SI-Eo-tM8" firstAttribute="top" secondItem="eUm-zg-BQG" secondAttribute="bottom" constant="16" id="86H-sF-aL4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1SI-Eo-tM8" secondAttribute="trailing" constant="16" id="EOy-mu-Qmb"/>
+                            <constraint firstItem="eUm-zg-BQG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="G0a-UH-96P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eUm-zg-BQG" secondAttribute="trailing" constant="16" id="WMU-6O-beD"/>
+                            <constraint firstItem="eUm-zg-BQG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="d8q-3H-2eB"/>
+                            <constraint firstItem="6DI-pS-FMK" firstAttribute="top" secondItem="1SI-Eo-tM8" secondAttribute="bottom" constant="16" id="hA9-zO-TBe"/>
+                            <constraint firstItem="6DI-pS-FMK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iOv-8A-X8n"/>
+                            <constraint firstItem="1SI-Eo-tM8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="p6a-Vf-HTI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6DI-pS-FMK" secondAttribute="trailing" constant="16" id="tPa-Pe-fVA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Тест" id="wGF-fn-iKx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="FTg-RH-wDj"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="fastTestButton" destination="eUm-zg-BQG" id="Kt0-d0-zrQ"/>
+                        <segue destination="bjs-tN-uoT" kind="push" id="Wx1-Ic-mkF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--Наборы-->
+        <scene sceneID="SJT-hH-bCS">
+            <objects>
+                <viewController storyboardIdentifier="CollectionListViewController" id="bjs-tN-uoT" customClass="CollectionListViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="emp-89-Hoc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kbc-lN-Uxt">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uP1-VX-g3H"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kbc-lN-Uxt" firstAttribute="top" secondItem="uP1-VX-g3H" secondAttribute="top" id="GSe-yM-Z3E"/>
+                            <constraint firstItem="uP1-VX-g3H" firstAttribute="bottom" secondItem="Kbc-lN-Uxt" secondAttribute="bottom" id="HNm-ZG-xZa"/>
+                            <constraint firstItem="Kbc-lN-Uxt" firstAttribute="leading" secondItem="uP1-VX-g3H" secondAttribute="leading" id="eE8-MK-dDh"/>
+                            <constraint firstItem="uP1-VX-g3H" firstAttribute="trailing" secondItem="Kbc-lN-Uxt" secondAttribute="trailing" id="npd-rU-vG6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Наборы" id="AY5-Eg-Nl8">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3NY-AN-pD6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LJO-VT-m62">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addCollectionBarButtonItem" destination="LJO-VT-m62" id="zUD-oF-Gb6"/>
+                        <outlet property="tableView" destination="Kbc-lN-Uxt" id="XEE-YY-pbZ"/>
+                        <segue destination="oKI-UY-iJE" kind="push" id="t0L-uQ-uAi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iF3-7g-uKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="137"/>
+        </scene>
+        <!--Статистика-->
+        <scene sceneID="vkB-6d-fbF">
+            <objects>
+                <viewController storyboardIdentifier="StatisticViewController" id="oKI-UY-iJE" customClass="StatisticViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zWR-5A-e2g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="upn-bd-bC4">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="XoU-Yd-wfD">
+                                    <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uRo-76-a86">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRo-76-a86" id="Nyd-dA-2Up">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cyY-bf-q8p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cyY-bf-q8p" firstAttribute="trailing" secondItem="upn-bd-bC4" secondAttribute="trailing" id="3OX-sC-ZP4"/>
+                            <constraint firstItem="upn-bd-bC4" firstAttribute="leading" secondItem="cyY-bf-q8p" secondAttribute="leading" id="gFA-6W-C6n"/>
+                            <constraint firstItem="cyY-bf-q8p" firstAttribute="bottom" secondItem="upn-bd-bC4" secondAttribute="bottom" id="qfW-vE-7HT"/>
+                            <constraint firstItem="upn-bd-bC4" firstAttribute="top" secondItem="cyY-bf-q8p" secondAttribute="top" id="vpo-0I-btU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Статистика" id="DgN-tt-gQF"/>
+                    <connections>
+                        <outlet property="tableView" destination="upn-bd-bC4" id="R8h-K2-f4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0f-Ir-ehu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734" y="136"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="FtQ-WS-ac0">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" id="VmL-hr-4pP" customClass="MainTabBarController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mCN-n0-zd7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bgo-of-9Rq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-774" y="138"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hyI-mm-bMD">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="uD7-6l-WKm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9El-Zv-gnf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Hef-mh-Hbp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zW0-Lg-jIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="1SI-Eo-tM8">
+            <size key="intrinsicContentSize" width="82" height="33"/>
+        </designable>
+        <designable name="6DI-pS-FMK">
+            <size key="intrinsicContentSize" width="91" height="33"/>
+        </designable>
+        <designable name="eUm-zg-BQG">
+            <size key="intrinsicContentSize" width="116" height="33"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

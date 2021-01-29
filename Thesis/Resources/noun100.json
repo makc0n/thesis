@@ -1,0 +1,500 @@
+{
+  "name": "Топ 100 существительных",
+  "words": [
+    {
+      "eng": "block",
+      "rus": "блок, кубик, многоквартирный дом",
+      "trans": "[ blɔk ]"
+    },
+    {
+      "eng": "car",
+      "rus": "автомобиль",
+      "trans": "[ kɑ: ]"
+    },
+    {
+      "eng": "street",
+      "rus": "улица",
+      "trans": "[ stri:t ]"
+    },
+    {
+      "eng": "hand",
+      "trans": "[ hænd ]",
+      "rus": "рука, кисть руки"
+    },
+    {
+      "eng": "foot",
+      "trans": "[ fut ]",
+      "rus": "ступня"
+    },
+    {
+      "eng": "apple",
+      "trans": "[ æpl ]",
+      "rus": "яблоко"
+    },
+    {
+      "eng": "eye",
+      "trans": "[ ai ]",
+      "rus": "глаз"
+    },
+    {
+      "eng": "head",
+      "trans": "[ hed ]",
+      "rus": "голова"
+    },
+    {
+      "eng": "arm",
+      "trans": "[ ɑ:m ]",
+      "rus": "рука (от кисти до плеча)"
+    },
+    {
+      "eng": "hair",
+      "trans": "[ hɛə ]",
+      "rus": "волосы"
+    },
+    {
+      "eng": "face",
+      "trans": "[ feis ]",
+      "rus": "лицо"
+    },
+    {
+      "eng": "people",
+      "trans": "[ pi:pl ]",
+      "rus": "люди"
+    },
+    {
+      "eng": "love",
+      "trans": "[ lʌv ]",
+      "rus": "любовь"
+    },
+    {
+      "eng": "anger",
+      "trans": "[ 'æŋgə ]",
+      "rus": "злость"
+    },
+    {
+      "eng": "ceiling",
+      "trans": "[ 'si:liŋ ]",
+      "rus": "потолок"
+    },
+    {
+      "eng": "wall",
+      "trans": "[ wɔ:l ]",
+      "rus": "стена"
+    },
+    {
+      "eng": "window",
+      "trans": "[ 'windəu ]",
+      "rus": "окно"
+    },
+    {
+      "eng": "heart",
+      "trans": "[ hɑ:t ]",
+      "rus": "сердце"
+    },
+    {
+      "eng": "branch",
+      "trans": "[ brɑ:nʧ ]",
+      "rus": "ветвь"
+    },
+    {
+      "eng": "break",
+      "trans": "[ breik ]",
+      "rus": "перерыв, школьная перемена, перелом"
+    },
+    {
+      "eng": "kitten",
+      "trans": "[ kitn ]",
+      "rus": "котёнок"
+    },
+    {
+      "eng": "smile",
+      "trans": "[ smail ]",
+      "rus": "улыбка"
+    },
+    {
+      "eng": "building",
+      "trans": "[ 'bildiŋ ]",
+      "rus": "здание"
+    },
+    {
+      "eng": "wood",
+      "trans": "[ wud ]",
+      "rus": "дерево"
+    },
+    {
+      "eng": "saw",
+      "trans": "[ sɔ: ]",
+      "rus": "пила"
+    },
+    {
+      "eng": "table",
+      "trans": "[ teibl ]",
+      "rus": "стол"
+    },
+    {
+      "eng": "animal",
+      "trans": "[ 'æniməl ]",
+      "rus": "животное"
+    },
+    {
+      "eng": "advice",
+      "trans": "[ əd'vais ]",
+      "rus": "совет"
+    },
+    {
+      "eng": "age",
+      "trans": "[ eiʤ ]",
+      "rus": "возраст"
+    },
+    {
+      "eng": "air",
+      "trans": "[ ɛə ]",
+      "rus": "воздух"
+    },
+    {
+      "eng": "sun",
+      "trans": "[ sʌn ]",
+      "rus": "солнце"
+    },
+    {
+      "eng": "king",
+      "trans": "[ kiŋ ]",
+      "rus": "король"
+    },
+    {
+      "eng": "circle",
+      "trans": "[ sə:kl ]",
+      "rus": "круг"
+    },
+    {
+      "eng": "tree",
+      "trans": "[ tri: ]",
+      "rus": "дерево"
+    },
+    {
+      "eng": "boat",
+      "trans": "[ bəut ]",
+      "rus": "лодка"
+    },
+    {
+      "eng": "brick",
+      "trans": "[ brik ]",
+      "rus": "кирпич"
+    },
+    {
+      "eng": "family",
+      "trans": "[ 'fæmili ]",
+      "rus": "семья"
+    },
+    {
+      "eng": "word",
+      "trans": "[ wə:d ]",
+      "rus": "слово"
+    },
+    {
+      "eng": "wife",
+      "trans": "[ waif ]",
+      "rus": "жена"
+    },
+    {
+      "eng": "mother",
+      "trans": "[ 'mʌðə ]",
+      "rus": "мать"
+    },
+    {
+      "eng": "father",
+      "trans": "[ 'fɑ:ðə ]",
+      "rus": "отец"
+    },
+    {
+      "eng": "son",
+      "trans": "[ sʌn ]",
+      "rus": "сын"
+    },
+    {
+      "eng": "bread",
+      "trans": "[ bred ]",
+      "rus": "хлеб"
+    },
+    {
+      "eng": "pie",
+      "trans": "[ pai ]",
+      "rus": "пирог"
+    },
+    {
+      "eng": "hour",
+      "trans": "[ 'auə ]",
+      "rus": "час"
+    },
+    {
+      "eng": "wealth",
+      "trans": "[ welθ ]",
+      "rus": "благосостояние"
+    },
+    {
+      "eng": "man",
+      "trans": "[ mæn ]",
+      "rus": "мужчина"
+    },
+    {
+      "eng": "woman",
+      "trans": "[ 'wumən ]",
+      "rus": "женщина"
+    },
+    {
+      "eng": "boy",
+      "trans": "[ bɔi ]",
+      "rus": "мальчик"
+    },
+    {
+      "eng": "girl",
+      "trans": "[ gə:l ]",
+      "rus": "девочка"
+    },
+    {
+      "eng": "water",
+      "trans": "[ 'wɔ:tə ]",
+      "rus": "вода"
+    },
+    {
+      "eng": "day",
+      "trans": "[ dei ]",
+      "rus": "день"
+    },
+    {
+      "eng": "night",
+      "trans": "[ nait ]",
+      "rus": "ночь"
+    },
+    {
+      "eng": "year",
+      "trans": "[ jiə ]",
+      "rus": "год"
+    },
+    {
+      "eng": "week",
+      "trans": "[ wi:k ]",
+      "rus": "неделя"
+    },
+    {
+      "eng": "morning",
+      "trans": "[ 'mɔ:niŋ ]",
+      "rus": "утро"
+    },
+    {
+      "eng": "minute",
+      "trans": "[ 'minit ]",
+      "rus": "минута"
+    },
+    {
+      "eng": "house",
+      "trans": "[ haus ]",
+      "rus": "дом"
+    },
+    {
+      "eng": "gate",
+      "trans": "[ geit ]",
+      "rus": "ворота"
+    },
+    {
+      "eng": "call",
+      "trans": "[ kɔ:l ]",
+      "rus": "звонок"
+    },
+    {
+      "eng": "book",
+      "trans": "[ buk ]",
+      "rus": "книга"
+    },
+    {
+      "eng": "child",
+      "trans": "[ ʧaild ]",
+      "rus": "ребёнок"
+    },
+    {
+      "eng": "hope",
+      "trans": "[ həup ]",
+      "rus": "надежда"
+    },
+    {
+      "eng": "education",
+      "trans": "[ ,edju:'keiʃn ]",
+      "rus": "образование"
+    },
+    {
+      "eng": "country",
+      "trans": "[ 'kʌntri ]",
+      "rus": "страна"
+    },
+    {
+      "eng": "name",
+      "trans": "[ neim ]",
+      "rus": "имя"
+    },
+    {
+      "eng": "place",
+      "trans": "[ pleis ]",
+      "rus": "место"
+    },
+    {
+      "eng": "body",
+      "trans": "[ 'bɔdi ]",
+      "rus": "тело"
+    },
+    {
+      "eng": "blood",
+      "trans": "[ blʌd ]",
+      "rus": "кровь"
+    },
+    {
+      "eng": "door",
+      "trans": "[ dɔ: ]",
+      "rus": "дверь"
+    },
+    {
+      "eng": "right",
+      "trans": "[ rait ]",
+      "rus": "право"
+    },
+    {
+      "eng": "light",
+      "trans": "[ lait ]",
+      "rus": "свет"
+    },
+    {
+      "eng": "money",
+      "trans": "[ 'mʌni ]",
+      "rus": "деньги"
+    },
+    {
+      "eng": "time",
+      "trans": "[ taim ]",
+      "rus": "время"
+    },
+    {
+      "eng": "world",
+      "trans": "[ wə:ld ]",
+      "rus": "мир"
+    },
+    {
+      "eng": "camp",
+      "trans": "[ kæmp ]",
+      "rus": "лагерь"
+    },
+    {
+      "eng": "life",
+      "trans": "[ laif ]",
+      "rus": "жизнь"
+    },
+    {
+      "eng": "weather",
+      "trans": "[ 'weðə ]",
+      "rus": "погода"
+    },
+    {
+      "eng": "sound",
+      "trans": "[ saund ]",
+      "rus": "звук"
+    },
+    {
+      "eng": "answer",
+      "trans": "[ 'ɑ:nsə ]",
+      "rus": "ответ"
+    },
+    {
+      "eng": "apparel",
+      "trans": "[ ə'pærəl ]",
+      "rus": "одежда"
+    },
+    {
+      "eng": "badge",
+      "trans": "[ bæʤ ]",
+      "rus": "значок"
+    },
+    {
+      "eng": "help",
+      "trans": "[ help ]",
+      "rus": "помощь"
+    },
+    {
+      "eng": "work",
+      "trans": "[ wə:k ]",
+      "rus": "работа"
+    },
+    {
+      "eng": "thought",
+      "trans": "[ θɔ:t ]",
+      "rus": "мысль"
+    },
+    {
+      "eng": "chance",
+      "trans": "[ ʧɑ:ns ]",
+      "rus": "шанс, возможность"
+    },
+    {
+      "eng": "holiday",
+      "trans": "[ 'hɔlidi ]",
+      "rus": "отпуск, каникулы"
+    },
+    {
+      "eng": "birthday",
+      "trans": "[ 'bə:θdei ]",
+      "rus": "день рождения"
+    },
+    {
+      "eng": "question",
+      "trans": "[ 'kwesʧən ]",
+      "rus": "вопрос"
+    },
+    {
+      "eng": "idea",
+      "trans": "[ ai'diə ]",
+      "rus": "идея"
+    },
+    {
+      "eng": "cemetery",
+      "trans": "[ 'semitri ]",
+      "rus": "кладбище"
+    },
+    {
+      "eng": "school",
+      "trans": "[ sku:l ]",
+      "rus": "школа"
+    },
+    {
+      "eng": "basket",
+      "trans": "[ 'bɑ:skit ]",
+      "rus": "корзина"
+    },
+    {
+      "eng": "guy",
+      "trans": "[ gai ]",
+      "rus": "парень"
+    },
+    {
+      "eng": "problem",
+      "trans": "[ 'prɔbləm ]",
+      "rus": "проблема"
+    },
+    {
+      "eng": "captain",
+      "trans": "[ 'kæptin ]",
+      "rus": "капитан"
+    },
+    {
+      "eng": "fact",
+      "trans": "[ fækt ]",
+      "rus": "факт"
+    },
+    {
+      "eng": "partner",
+      "trans": "[ 'pɑ:tnə ]",
+      "rus": "компаньон"
+    },
+    {
+      "eng": "story",
+      "trans": "[ 'stɔri ]",
+      "rus": "история"
+    }
+  ]
+}

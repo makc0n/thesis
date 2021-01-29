@@ -7,31 +7,61 @@
 //
 
 import UIKit
+import RxMVVM
+import RealmSwift
+import CleanMapper
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    let disposeBag = DisposeBag()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        Navigator.set(window: &window, route: NavigationRoutes.main)
+        MapperConfiguration.configure()
+        
+        #if DEBUG
+        UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        #endif
+        
+        
+        
+//        do{
+//            try loadDatabase()
+//        } catch{
+//            print(error)
+//        }
+
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    private func loadDatabase() throws{
+        
+        Realms.deleteAllRealms()
+        
+        let bundle = Bundle.main.path(forResource: "noun100", ofType: "json")
+        let url = URL(fileURLWithPath: bundle!)
+        let data = try Data(contentsOf: url)
+        
+        if let webCollection = try? JSONDecoder().decode(WebCollection.self, from: data){
+            let collection: Collection = Mapper.map(webCollection)
+            let words: [Word] = webCollection.words.map({Mapper.map($0)})
+            
+            AddCollection.default.use(input: .init(collection: collection)).subscribe().disposed(by: disposeBag)
+            AddWordsToCollection.default.use(input: .init(collectionID: collection.id, wordsIDs: words.map({$0.id})) ).subscribe().disposed(by: disposeBag)
+            AddWords.default.use(input: .init(words: words)).subscribe().disposed(by: disposeBag)
+        }
+        
+        
+        
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
 
 
 }
+
 
