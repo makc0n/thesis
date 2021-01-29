@@ -13,6 +13,10 @@ enum MultiplicationItem {
     case quest
     case answer
     case attempt
+    case lastRequest
+    case scoreAddition
+    case proirityMinimum
+    case stepPriorityIncrease
     
     
 }
