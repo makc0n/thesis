@@ -35,10 +35,10 @@ extension UpdateWordByQuest {
     
     
     struct Input {
-        let wordID: String
-        let completed: Bool
+        let wordID: Int
         let score: Double
         let priority: Double
+        let answerResult: AnswerResult
         let testType: TestType
         let questType: QuestType
         let attemptType: AttemptType

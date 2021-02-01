@@ -7,7 +7,9 @@
 //
 
 import Foundation
+
 struct User {
+    
     let userName: String
     let request: Request
     let countWords: Int
@@ -19,4 +21,5 @@ struct User {
     let averageScore: Double
     let stepForPriority: Double
     let totalScore: Double
+    
 }

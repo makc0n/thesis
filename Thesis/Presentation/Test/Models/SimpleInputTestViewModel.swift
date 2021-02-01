@@ -13,7 +13,7 @@ import RxCocoa
 class SimpleInputTestViewModel: ViewModel{
     
     var words: [Word]
-    let testConfiguration: TestConfiguration
+    let testConfiguration: Test
     var currentAttempt = 0
     
     let getWords = GetWords.default
@@ -26,7 +26,7 @@ class SimpleInputTestViewModel: ViewModel{
     lazy var synonymsID = currentWord.map({ $0?.synonymsID})
     lazy var synonyms = BehaviorRelay<[Word]>(value: [])
     
-    init(words: [Word], testConfiguration: TestConfiguration) {
+    init(words: [Word], testConfiguration: Test) {
         self.words = words
         self.testConfiguration = testConfiguration
     }

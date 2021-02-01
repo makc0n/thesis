@@ -15,7 +15,7 @@ import RxDataSources
 class ConstructorTestViewModel: ViewModel{
     
     var words: [Word]
-    let testConfiguration: TestConfiguration
+    unowned let testConfiguration: Test
     var currentAttempt = 0
     
     let uncorrectAnswer = PublishSubject<Void>()
@@ -29,7 +29,7 @@ class ConstructorTestViewModel: ViewModel{
     
     lazy var answer = BehaviorRelay<String>(value: "")
     
-    init(words: [Word], testConfiguration: TestConfiguration) {
+    init(words: [Word], testConfiguration: Test) {
         self.words = words
         self.testConfiguration = testConfiguration
     }
@@ -72,7 +72,7 @@ class ConstructorTestViewModel: ViewModel{
             }
         } else {
             cellModel.failSelect.onNext(())
-            if self.currentAttempt >= testConfiguration.attempCount {
+            if self.currentAttempt >= testConfiguration.currentQuest.attemptCount {
                 self.uncorrectAnswer.onNext(())
                 self.currentAttempt = 0
                 return

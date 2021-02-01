@@ -17,7 +17,7 @@ class MapperConfiguration {
 //MARK: - Word
         Mapper.register(mappingAlgorithm: { (webWord:WebWord) -> Word in
                         
-            return Word(id: UUID().uuidString,
+            return Word(id: arc4random(),
                         rus: webWord.rus,
                         eng: webWord.eng,
                         transcription: webWord.transcription,

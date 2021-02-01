@@ -9,31 +9,32 @@
 import Foundation
 import RealmSwift
 
-class RealmRequest:Object,RealmIdentifiableType {
+class RealmRequest: Object {
     
-    @objc dynamic var id:String = UUID().uuidString
+    @objc dynamic var id: String = UUID().uuidString
     
 //MARK: - Fast
-    @objc dynamic var completeFast:Int = 0
-    @objc dynamic var failFast:Int = 0
+    @objc dynamic var completeFast: Int = 0
+    @objc dynamic var failFast: Int = 0
     
 //MARK: - Choice
-    @objc dynamic var completeChoice:Int = 0
-    @objc dynamic var failChoice:Int = 0
+    @objc dynamic var completeChoice: Int = 0
+    @objc dynamic var failChoice: Int = 0
     
 //MARK: - Costructor
-    @objc dynamic var completeConstructor:Int = 0
-    @objc dynamic var failConstructor:Int = 0
+    @objc dynamic var completeConstructor: Int = 0
+    @objc dynamic var failConstructor: Int = 0
     
 //MARK: - SimpleInput
-    @objc dynamic var completeInput:Int = 0
-    @objc dynamic var failInput:Int = 0
+    @objc dynamic var completeInput: Int = 0
+    @objc dynamic var failInput: Int = 0
+    @objc dynamic var synonyms: Int = 0
     
-    @objc dynamic var completeFirstAttempt:Int = 0
-    @objc dynamic var failFirstAttempt:Int = 0
+    @objc dynamic var completeFirstAttempt: Int = 0
+    @objc dynamic var failFirstAttempt: Int = 0
     
-    @objc dynamic var completeCorrectionAttempt:Int = 0
-    @objc dynamic var failCorrectionAttempt:Int = 0
+    @objc dynamic var completeCorrectionAttempt: Int = 0
+    @objc dynamic var failCorrectionAttempt: Int = 0
 
             
     override class func primaryKey() -> String? {
@@ -42,56 +43,60 @@ class RealmRequest:Object,RealmIdentifiableType {
     
     func update( updateRequest: UpdateRequest) {
         //Fast
-        if let completeFast = updateRequest.completeFast {
-            self.completeFast += completeFast
+        if updateRequest.completeFast {
+            self.completeFast += 1
         }
         
-        if let failFast = updateRequest.failFast {
-            self.failFast += failFast
+        if updateRequest.failFast {
+            self.failFast += 1
         }
         
         //Choice
-        if let completeChoice = updateRequest.completeChoice {
-            self.completeChoice += completeChoice
+        if updateRequest.completeChoice {
+            self.completeChoice += 1
         }
         
-        if let failChoice = updateRequest.failChoice {
-            self.failChoice += failChoice
+        if updateRequest.failChoice {
+            self.failChoice += 1
         }
         
         //Costructor
-        if let completeConstructor = updateRequest.completeConstructor {
-            self.completeConstructor += completeConstructor
+        if updateRequest.completeConstructor {
+            self.completeConstructor += 1
         }
         
-        if let failConstructor = updateRequest.failConstructor {
-            self.failConstructor += failConstructor
+        if updateRequest.failConstructor {
+            self.failConstructor += 1
         }
         
         //SimpleInput
-        if let completeInput = updateRequest.completeInput {
-            self.completeInput += completeInput
+        if updateRequest.completeInput {
+            self.completeInput += 1
         }
         
-        if let failInput = updateRequest.failInput {
-            self.failInput += failInput
+        if updateRequest.failInput {
+            self.failInput += 1
+        }
+        
+        if updateRequest.synonym {
+            self.synonyms += 1
         }
         
         //Attempt
-        if let completeFirstAttempt = updateRequest.completeFirstAttempt {
-            self.completeFirstAttempt += completeFirstAttempt
+        if updateRequest.completeFirstAttempt {
+            self.completeFirstAttempt += 1
         }
         
-        if let failFirstAttempt = updateRequest.failFirstAttempt {
-            self.failFirstAttempt += failFirstAttempt
+        if updateRequest.failFirstAttempt {
+            self.failFirstAttempt += 1
         }
         
-        if let completeCorrectionAttempt = updateRequest.completeCorrectionAttempt {
-            self.completeCorrectionAttempt += completeCorrectionAttempt
+        if updateRequest.completeCorrectionAttempt {
+            self.completeCorrectionAttempt += 1
         }
         
-        if let failCorrectionAttempt = updateRequest.failCorrectionAttempt {
-            self.failCorrectionAttempt += failCorrectionAttempt
+        if updateRequest.failCorrectionAttempt {
+            self.failCorrectionAttempt += 1
         }
     }
 }

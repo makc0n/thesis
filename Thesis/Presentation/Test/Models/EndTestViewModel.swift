@@ -13,12 +13,12 @@ import RxSwift
 
 class EndTestViewModel: ViewModel{
     
-    let testConfiguration: TestConfiguration
+    let testConfiguration: Test
     
     let againg = PublishSubject<Void>()
     let done = PublishSubject<Void>()
     
-    init( testConfiguration: TestConfiguration) {
+    init( testConfiguration: Test) {
         self.testConfiguration = testConfiguration
     }
     
@@ -32,7 +32,7 @@ class EndTestViewModel: ViewModel{
     
     
     private func againAction(){
-        var newTestConfiguration = TestConfiguration(testType: testConfiguration.testType, words: <#T##[Word]#>, neededWordsCount: testConfiguration.neededWordsCount, attemptCount: testConfiguration.attempCount, quests: [])
+        var newTestConfiguration = Test(testType: testConfiguration.testType, words: <#T##[Word]#>, neededWordsCount: testConfiguration.neededWordsCount, attemptCount: testConfiguration.attempCount, quests: [])
         
         
         Navigator.navigate(route: NavigationRoutes.replacePreTest(usedWordsIDs: <#T##[String]#>, testConfiguration: <#T##TestConfiguration#>) )

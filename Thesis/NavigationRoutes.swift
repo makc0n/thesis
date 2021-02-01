@@ -23,20 +23,20 @@ enum NavigationRoutes: NavigationRouteType {
     case statisticList
     
 //MARK: - case PreTest
-    case pushPreTest(usedWordsIDs: [String], testConfiguration: TestConfiguration)
-    case replacePreTest(usedWordsIDs: [String], testConfiguration: TestConfiguration)
+    case pushPreTest(usedWordsIDs: [Int], testConfiguration: Test)
+    case replacePreTest(usedWordsIDs: [Int], testConfiguration: Test)
     
 //MARK: - case ChoiceTest
-    case pushChoiceTest(words: [Word], testConfiguration: TestConfiguration)
-    case replaceChoiceTest(words: [Word], testConfiguration: TestConfiguration)
+    case pushChoiceTest(words: [Word], testConfiguration: Test)
+    case replaceChoiceTest(words: [Word], testConfiguration: Test)
     
 //MARK: - case Constructor
-    case pushConstructor(words: [Word], testConfiguration: TestConfiguration)
-    case replaceConstructor(words: [Word], testConfiguration: TestConfiguration)
+    case pushConstructor(words: [Word], testConfiguration: Test)
+    case replaceConstructor(words: [Word], testConfiguration: Test)
     
 //MARK: - case SimpleInput
-    case pushSimpleInput(words: [Word], testConfiguration: TestConfiguration)
-    case replaceSimpleInput(words: [Word], testConfiguration: TestConfiguration)
+    case pushSimpleInput(words: [Word], testConfiguration: Test)
+    case replaceSimpleInput(words: [Word], testConfiguration: Test)
     
 //MARK: - case EndTest
     case replaceEndTest

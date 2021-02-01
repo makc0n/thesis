@@ -9,7 +9,7 @@
 import Foundation
 class PreTestAdapter {
     
-    static func smartRandomWord(fromWords words: [Word], forUser user: User, ignoreWordIDs: [String] = []) -> Word {
+    static func smartRandomWord(fromWords words: [Word], forUser user: User, ignoreWordIDs: [Int] = []) -> Word {
         var increasedPriority = user.averagePriority
         while true {
             if let word = words.randomElement() {

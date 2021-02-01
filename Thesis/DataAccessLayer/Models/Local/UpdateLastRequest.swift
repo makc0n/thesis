@@ -13,6 +13,6 @@ struct UpdateLastRequest {
     let testType: TestType
     let questType: QuestType
     let attemptType: AttemptType
-    let complete: Bool
+    let answerResult: AnswerResult
     
 }

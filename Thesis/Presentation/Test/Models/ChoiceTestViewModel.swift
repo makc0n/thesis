@@ -15,7 +15,7 @@ import RxDataSources
 class ChoiceTestViewModel: ViewModel{
     
     var words: [Word]
-    let testConfiguration: TestConfiguration
+    let testConfiguration: Test
     var currentAttempt = 0
     
     let getAllWords = GetAllWords.default.use().share()
@@ -31,7 +31,7 @@ class ChoiceTestViewModel: ViewModel{
     lazy var sections = models.map({ [SectionModel<String,ChoiceItemModel>(model: "", items: $0.shuffled())]})
     
     
-    init(words: [Word], testConfiguration: TestConfiguration) {
+    init(words: [Word], testConfiguration: Test) {
         self.words = words
         self.testConfiguration = testConfiguration
     }
@@ -66,18 +66,18 @@ class ChoiceTestViewModel: ViewModel{
         guard let currentWord = self.currentWord.value else {
             return
         }
+        let attempt: AttemptType = currentAttempt == 0 ? .firstAttempt : .correctionAttempt(attempt: currentAttempt)
+        let answerResult = testConfiguration.verifyAnswer(wordID: currentWord.id, answer: cellModel.word.eng, attempt: attempt)
         
-        switch cellModel.word {
-        case let word where word.id == currentWord.id || word.eng == currentWord.eng:
-            testConfiguration.currentQuest.sendAnswer(wordID: currentWord.id, answerType: .correct)
+        switch answerResult {
+        case .correct:
             self.correctAnswer.onNext(())
-        case let word where currentWord.synonymsID.contains(word.id):
-            testConfiguration.currentQuest.sendAnswer(wordID: currentWord.id, answerType: .synonym)
+        case .synonym:
             self.correctAnswer.onNext(())
-        default:
-            testConfiguration.currentQuest.sendAnswer(wordID: currentWord.id, answerType: .uncorrect)
+        case .uncorrect:
             self.uncorrectAnswer.onNext(())
         }
+        
         currentAttempt += 1
     }
     
@@ -91,7 +91,7 @@ class ChoiceTestViewModel: ViewModel{
     }
     
     private func uncorrectAnswerAction() {
-        if currentAttempt >= self.testConfiguration.attempCount {
+        if currentAttempt >= self.testConfiguration.currentQuest.attemptCount {
             if self.words.isEmpty {
                 self.testConfiguration.nextQuest()
                 return

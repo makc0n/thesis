@@ -14,7 +14,7 @@ import RxCocoa
 class PreTestViewModel: ViewModel{
     
     let usedWordsIDs: [String]
-    let testConfiguration: TestConfiguration
+    unowned let testConfiguration: Test
     
     let getUser = GetUser.default.use().share()
     lazy var getWords = GetWords.default.use(input: GetWords.Input(wordsIDs: usedWordsIDs)).share()
@@ -28,7 +28,7 @@ class PreTestViewModel: ViewModel{
     lazy var wordRus = currentWord.unwrap().map({$0.rus})
     lazy var wordTrascription = currentWord.unwrap().map({$0.transcription})
     
-    init(usedWordsIDs: [String], testConfiguration: TestConfiguration ) {
+    init(usedWordsIDs: [String], testConfiguration: Test ) {
         self.usedWordsIDs = usedWordsIDs
         self.testConfiguration = testConfiguration
     }

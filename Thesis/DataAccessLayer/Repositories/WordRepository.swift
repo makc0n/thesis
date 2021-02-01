@@ -16,11 +16,11 @@ class WordRepository: WordRepositoryProtocol {
     private let realm = Realms.words.create()
     
 //MARK: - Getting Actions
-    func getWord(wordID: String) -> Observable<Word> {
+    func getWord(wordID: Int) -> Observable<Word> {
         return Observable.collection(from: self.realm.objects(RealmWord.self).filter("id == %@", wordID)).map(Mapper.map)
     }
     
-    func getWords(wordsIDs: [String]) -> Observable<[Word]> {
+    func getWords(wordsIDs: [Int]) -> Observable<[Word]> {
         
         if wordsIDs.isEmpty {
             return Observable.collection(from: self.realm.objects(RealmWord.self).sorted(byKeyPath: "eng")).map({ $0.map(Mapper.map) })
@@ -33,9 +33,10 @@ class WordRepository: WordRepositoryProtocol {
         return Observable.collection(from: self.realm.objects(RealmWord.self).sorted(byKeyPath: "eng")).map({ $0.map(Mapper.map) })
     }
     
+    
 //MARK: - Addition Actions
     
-    func addWord(word: Word) -> Single<String> {
+    func addWord(word: Word) -> Single<Int> {
         return Single.create(subscribe: { observer in
             let realmWord: RealmWord = Mapper.map(word)
             try! self.realm.write {
@@ -47,7 +48,7 @@ class WordRepository: WordRepositoryProtocol {
         })
     }
     
-    func addWords(words: [Word]) -> Single<[String]> {
+    func addWords(words: [Word]) -> Single<[Int]> {
         return Single.create(subscribe: { observer in
             let realmWords: [RealmWord] = words.map(Mapper.map)
             try! self.realm.write {
@@ -60,7 +61,7 @@ class WordRepository: WordRepositoryProtocol {
     }
     
 //MARK: - Change Actions
-    func updateWord(rus: String?, eng: String?, transcription: String?, wordID: String) -> Single<Void> {
+    func updateWord(rus: String?, eng: String?, transcription: String?, wordID: Int) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmWord = self.realm.object(ofType: RealmWord.self, forPrimaryKey: wordID) {
                 try! self.realm.write {
@@ -74,31 +75,30 @@ class WordRepository: WordRepositoryProtocol {
         })
     }
     
-    func updateWordByQuest(wordID: String, completed: Bool, score: Double, priority: Double, testType: TestType, questType: QuestType, attemptType: AttemptType) -> Single<Void> {
+    func updateWordByQuest(wordID: Int, score: Double, priority: Double, answerResult: AnswerResult, testType: TestType, questType: QuestType, attemptType: AttemptType) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmWord = self.realm.object(ofType: RealmWord.self, forPrimaryKey: wordID) {
                 
                 let trainer = Trainer.instance
                 var daysScore: Double = 0.0
                 
+                let updateRequest = UpdateRequest(testType: testType, questType: questType, attemptType: attemptType, answerResult: answerResult)
+                let updateLastRequest = UpdateLastRequest(testType: testType, questType: questType, attemptType: attemptType, answerResult: answerResult)
+                
                 try! self.realm.write {
                     
                     if realmWord.lastRequest == nil {
+                        
                         let lastRequest = RealmLastRequest()
-                        lastRequest.testType = testType.rawValue
-                        lastRequest.attemptType = attemptType.rawValue
-                        lastRequest.questType = questType.rawValue
-                        lastRequest.complete = completed
-                        
+                        lastRequest.update(lastRequestUpdate: updateLastRequest)
                         realmWord.lastRequest = lastRequest
-                    } else {
-                        let lastRequest = UpdateLastRequest(testType: testType, questType: questType, attemptType: attemptType, complete: completed)
-                        daysScore = trainer.lastRequest[completed ? 0 : 1] * (Double(Date().containedDays - (realmWord.lastRequest?.date.containedDays ?? 0)) / trainer.lastRequest[2])
                         
-                        realmWord.lastRequest = Mapper.map(lastRequest)
+                    } else {
+                        
+                        daysScore = trainer.lastRequest[answerResult.rawValue] * (Double(Date().containedDays - (realmWord.lastRequest?.date.containedDays ?? 0)) * trainer.daysScoreMultiplication)
+                        
+                        realmWord.lastRequest?.update(lastRequestUpdate: updateLastRequest)
                     }
-                    
-                    let updateRequest = UpdateRequest(complete: completed, testType: testType, questType: questType, attemptType: attemptType)
                     
                     realmWord.request?.update(updateRequest: updateRequest)
                     realmWord.score += score + daysScore
@@ -114,7 +114,7 @@ class WordRepository: WordRepositoryProtocol {
         
     }
     
-    func addSynonyms(synonymsIDs: [String], for wordID: String) -> Single<Void> {
+    func addSynonyms(synonymsIDs: [Int], for wordID: Int) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmWord = self.realm.object(ofType: RealmWord.self, forPrimaryKey: wordID) {
                 try! self.realm.write {
@@ -137,7 +137,7 @@ class WordRepository: WordRepositoryProtocol {
         })
     }
     
-    func removeSynonym(synonymID: String, wordID: String) -> Single<Void> {
+    func removeSynonym(synonymID: Int, wordID: Int) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmWord = self.realm.object(ofType: RealmWord.self, forPrimaryKey: wordID) {
                 try! self.realm.write {
@@ -156,7 +156,7 @@ class WordRepository: WordRepositoryProtocol {
     }
     
 //MARK: - removing
-    func removeWord(wordID: String) -> Single<Void> {
+    func removeWord(wordID: Int) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmWord = self.realm.object(ofType: RealmWord.self, forPrimaryKey: wordID) {
                 try! self.realm.write {

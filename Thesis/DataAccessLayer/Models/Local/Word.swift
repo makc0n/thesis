@@ -10,7 +10,7 @@ import Foundation
 
 struct Word {
     
-    let id: String
+    let id: Int
     var rus: String
     var eng: String
     var transcription: String
@@ -20,10 +20,10 @@ struct Word {
     let request: Request
     let lastRequest: LastRequest?
     
-    var synonymsID: [String]
+    var synonymsID: [Int]
     
     static func defaultWord() -> Word {
-        return Word(id: UUID().uuidString,
+        return Word(id: Int(arc4random()),
                     rus: "",
                     eng: "",
                     transcription: "",

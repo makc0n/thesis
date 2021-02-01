@@ -12,81 +12,68 @@ struct UpdateRequest {
     
 //MARK: - Fast
     
-    var completeFast: Int? = nil
-    var failFast: Int? = nil
+    var completeFast: Bool
+    var failFast: Bool
     
 //MARK: - Choice
     
-    var completeChoice: Int? = nil
-    var failChoice: Int? = nil
+    var completeChoice: Bool
+    var failChoice: Bool
     
 //MARK: - Costructor
     
-    var completeConstructor: Int? = nil
-    var failConstructor: Int? = nil
+    var completeConstructor: Bool
+    var failConstructor: Bool
     
 //MARK: - SimpleInput
     
-    var completeInput: Int? = nil
-    var failInput: Int? = nil
+    var completeInput: Bool
+    var failInput: Bool
+    var synonym: Bool
     
-    var completeFirstAttempt: Int? = nil
-    var failFirstAttempt: Int? = nil
+    var completeFirstAttempt: Bool
+    var failFirstAttempt: Bool
     
-    var completeCorrectionAttempt: Int? = nil
-    var failCorrectionAttempt: Int? = nil
+    var completeCorrectionAttempt: Bool
+    var failCorrectionAttempt: Bool
     
-    init(completeFast: Int? = nil, failFast: Int? = nil,
-         completeChoice: Int? = nil, failChoice: Int? = nil,
-         completeConstructor: Int? = nil, failConstructor: Int? = nil,
-         completeInput: Int? = nil, failInput: Int? = nil,
-         completeFirstAttempt: Int? = nil, failFirstAttempt: Int? = nil,
-         completeCorrectionAttempt: Int? = nil, failCorrectionAttempt: Int? = nil) {
-        
-        self.completeFast = completeFast
-        self.failFast = failFast
-        self.completeChoice = completeChoice
-        self.failChoice = failChoice
-        self.completeConstructor = completeConstructor
-        self.failConstructor = failConstructor
-        self.completeInput = completeInput
-        self.failInput = failInput
-        self.completeFirstAttempt = completeFirstAttempt
-        self.failFirstAttempt = failFirstAttempt
-        self.completeCorrectionAttempt = completeCorrectionAttempt
-        self.failCorrectionAttempt = failCorrectionAttempt
-
-    }
-    
-    init(complete: Bool, testType: TestType, questType: QuestType, attemptType: AttemptType){
+    init( testType: TestType, questType: QuestType, attemptType: AttemptType, answerResult: AnswerResult ){
+        let complete = answerResult == .correct
+        let fail = answerResult == .uncorrect
         
         switch questType {
         case .choice:
-            self.completeChoice = complete ? 1 : nil
-            self.failChoice = complete ? nil : 1
+            self.completeChoice = complete
+            self.failChoice = fail
         case .constructor:
-            self.completeConstructor = complete ? 1 : nil
-            self.failConstructor = complete ? nil : 1
+            self.completeConstructor = complete
+            self.failConstructor = fail
         case .simpleInput:
-            self.completeInput = complete ? 1 : nil
-            self.failInput = complete ? nil : 1
+            self.completeInput = complete
+            self.failInput = fail
+            self.synonym = answerResult == .synonym
         default:
             break
         }
         
-        if testType == .fast {
-            self.completeFast =  complete ? 1 : nil
-            self.failFast = complete ? nil : 1
+        switch testType {
+        case .fast:
+            self.completeFast =  complete
+            self.failFast = fail
+        default:
+            break
+        }
+        
+        switch attemptType {
+        case .firstAttempt:
+            self.completeFirstAttempt = complete
+            self.failFirstAttempt = fail
+        default:
+            self.completeCorrectionAttempt = complete
+            self.failCorrectionAttempt = fail
         }
         
         
-        if attemptType == .firstAttempt {
-            self.completeFirstAttempt = complete ? 1 : nil
-            self.failFirstAttempt = complete ? nil : 1
-        } else {
-            self.completeCorrectionAttempt = complete ? 1 : nil
-            self.failCorrectionAttempt = complete ? nil : 1
-        }
         
     }
     

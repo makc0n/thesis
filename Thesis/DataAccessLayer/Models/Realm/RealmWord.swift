@@ -11,7 +11,7 @@ import RealmSwift
 
 class RealmWord: Object,RealmIdentifiableType {
     
-    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var id = 0
     @objc dynamic var rus = ""
     @objc dynamic var eng = ""
     @objc dynamic var transcription = ""
@@ -22,14 +22,14 @@ class RealmWord: Object,RealmIdentifiableType {
     @objc dynamic var request: RealmRequest? = RealmRequest()
     @objc dynamic var lastRequest: RealmLastRequest?
     
-    var synonymsID = List<String>()
+    var synonymsID = List<Int>()
     
     
     override class func primaryKey() -> String? {
         return "id"
     }
     
-    func appendSynonymIDs(_ ids:[String]){
+    func appendSynonymIDs(_ ids:[Int]){
         var result = self.synonymsID.toArray()
         result.append(contentsOf: ids)
         result = Array(Set(result.filter({$0 != self.id})))
@@ -37,7 +37,7 @@ class RealmWord: Object,RealmIdentifiableType {
         synonymsID.append(objectsIn: result)
     }
     
-    func deleteSynonym(_ id:String){
+    func deleteSynonym(_ id: Int){
         var result = self.synonymsID.toArray()
         result.removeAll { (have) -> Bool in
             have == id
