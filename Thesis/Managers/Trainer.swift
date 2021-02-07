@@ -81,7 +81,7 @@ class Trainer {
     
     func consulidateResults(word: Word, testType: TestType, questType: QuestType, attempt: AttemptType, answer: String) -> AnswerResult {
         let multiplication = self.computeMultiplication(testType: testType, questType: questType, attemptType: attempt)
-        let result = computeConcurrence(word: word, withAnswer: answer)
+        let result = questType == .constructor ? computeConstructorConcurrence(word: word, answer: answer) : computeConcurrence(word: word, withAnswer: answer)
         let score = scoreAddition * multiplication * answerResultMultiplicates[result.rawValue]
         let priority = priorityAddition * multiplication * answerResultMultiplicates[result.rawValue]
         
@@ -90,10 +90,15 @@ class Trainer {
         return result
     }
     
+    private func computeConstructorConcurrence(word: Word, answer: String) -> AnswerResult {
+        
+        return word.eng.lowercased().hasPrefix(answer.lowercased()) ? .correct : .uncorrect
+    }
+    
     private func computeConcurrence( word: Word, withAnswer answer: String) -> AnswerResult {
         
-        let original = word.eng.trimmingCharacters(in: CharacterSet(charactersIn: " ")).lowercased()
-        let input = answer.trimmingCharacters(in: CharacterSet(charactersIn: " ")).lowercased()
+        let original = word.eng.trimmingCharacters(in: .whitespaces).lowercased()
+        let input = answer.trimmingCharacters(in: .whitespaces).lowercased()
         if original == input { return .correct }
         
         let realm = Realms.words.create()

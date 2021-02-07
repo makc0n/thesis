@@ -13,4 +13,20 @@ enum AttemptType {
     case firstAttempt
     case correctionAttempt(attempt: Int)
     
+    
+    var index: Int {
+        switch self {
+        case .firstAttempt: return 0
+        case let .correctionAttempt(attempt): return attempt
+        }
+    }
+    
+    static func fromIndex(index: Int) -> AttemptType {
+        if index == 0 {
+            return .firstAttempt
+        } else {
+            return correctionAttempt(attempt: index + 1 )
+        }
+    }
+    
 }

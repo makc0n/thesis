@@ -17,7 +17,7 @@ class MapperConfiguration {
 //MARK: - Word
         Mapper.register(mappingAlgorithm: { (webWord:WebWord) -> Word in
                         
-            return Word(id: arc4random(),
+            return Word(id: Int(arc4random()),
                         rus: webWord.rus,
                         eng: webWord.eng,
                         transcription: webWord.transcription,
@@ -103,9 +103,10 @@ class MapperConfiguration {
             if let lastRequest = lastRequest {
                 realmLastRequest.id = lastRequest.id
                 realmLastRequest.date = lastRequest.date
-                realmLastRequest.answer = lastRequest.answer
+                realmLastRequest.testType = lastRequest.testType.index
                 realmLastRequest.questType = lastRequest.questType.rawValue
-                realmLastRequest.complete = lastRequest.complete
+                realmLastRequest.attemptType = lastRequest.attepmtType.index
+                realmLastRequest.answerType = lastRequest.answerResult.rawValue
             }
             
             return realmLastRequest
@@ -115,10 +116,10 @@ class MapperConfiguration {
             if let realmLastRequest = realmLastRequest {
                 return LastRequest(id: realmLastRequest.id,
                                    date: realmLastRequest.date,
-                                   answer: realmLastRequest.answer,
-                                   attempt: realmLastRequest.attempt,
+                                   testType: TestType.fromIndex(index: realmLastRequest.testType),
+                                   attepmtType: AttemptType.fromIndex(index: realmLastRequest.attemptType) ,
                                    questType: QuestType(rawValue: realmLastRequest.questType)!,
-                                   complete: realmLastRequest.complete)
+                                   answerResult: AnswerResult(rawValue: realmLastRequest.answerType) ?? .uncorrect)
             } else {
                 return nil
             }            

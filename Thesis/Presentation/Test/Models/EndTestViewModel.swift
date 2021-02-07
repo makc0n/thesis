@@ -32,10 +32,7 @@ class EndTestViewModel: ViewModel{
     
     
     private func againAction(){
-        var newTestConfiguration = Test(testType: testConfiguration.testType, words: <#T##[Word]#>, neededWordsCount: testConfiguration.neededWordsCount, attemptCount: testConfiguration.attempCount, quests: [])
-        
-        
-        Navigator.navigate(route: NavigationRoutes.replacePreTest(usedWordsIDs: <#T##[String]#>, testConfiguration: <#T##TestConfiguration#>) )
+        Navigator.navigate(route: NavigationRoutes.replacePreTest(testConfiguration: Test(testType: self.testConfiguration.testType)) )
     }
     
     private func doneAction(){

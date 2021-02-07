@@ -13,11 +13,11 @@ import RxCocoa
 
 class PreTestViewModel: ViewModel{
     
-    let usedWordsIDs: [String]
+    let usedWordsIDs: [Int]
     unowned let testConfiguration: Test
     
     let getUser = GetUser.default.use().share()
-    lazy var getWords = GetWords.default.use(input: GetWords.Input(wordsIDs: usedWordsIDs)).share()
+    lazy var getWords = GetWords.default.use(input: GetWords.Input(wordsIDs: self.usedWordsIDs)).share()
     
     let currentWord = BehaviorRelay<Word?>(value: nil)
     
@@ -28,8 +28,8 @@ class PreTestViewModel: ViewModel{
     lazy var wordRus = currentWord.unwrap().map({$0.rus})
     lazy var wordTrascription = currentWord.unwrap().map({$0.transcription})
     
-    init(usedWordsIDs: [String], testConfiguration: Test ) {
-        self.usedWordsIDs = usedWordsIDs
+    init(testConfiguration: Test ) {
+        self.usedWordsIDs = testConfiguration.usedWordsIDs
         self.testConfiguration = testConfiguration
     }
     

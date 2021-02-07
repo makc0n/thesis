@@ -31,8 +31,8 @@ class ChoiceTestViewModel: ViewModel{
     lazy var sections = models.map({ [SectionModel<String,ChoiceItemModel>(model: "", items: $0.shuffled())]})
     
     
-    init(words: [Word], testConfiguration: Test) {
-        self.words = words
+    init(testConfiguration: Test) {
+        self.words = testConfiguration.words
         self.testConfiguration = testConfiguration
     }
     

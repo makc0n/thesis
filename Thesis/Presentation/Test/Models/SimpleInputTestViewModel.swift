@@ -26,8 +26,8 @@ class SimpleInputTestViewModel: ViewModel{
     lazy var synonymsID = currentWord.map({ $0?.synonymsID})
     lazy var synonyms = BehaviorRelay<[Word]>(value: [])
     
-    init(words: [Word], testConfiguration: Test) {
-        self.words = words
+    init(testConfiguration: Test) {
+        self.words = testConfiguration.words
         self.testConfiguration = testConfiguration
     }
     
@@ -50,17 +50,19 @@ class SimpleInputTestViewModel: ViewModel{
             return
         }
         
-        switch answer.trimmingCharacters(in: .whitespaces).lowercased() {
-        case let answer where answer == currentWord.eng:
-            testConfiguration.currentQuest.sendAnswer(wordID: currentWord.id, answerType: .correct)
+        let attemptType: AttemptType = self.currentAttempt == 0 ? .firstAttempt : .correctionAttempt(attempt: self.currentAttempt)
+        
+        let answerResult = testConfiguration.verifyAnswer(wordID: currentWord.id, answer: answer, attempt: attemptType)
+        
+        switch answerResult {
+        case .correct:
             self.correctAnswer.onNext(())
-        case let answer where synonyms.value.map({ $0.eng }).contains(answer):
-            testConfiguration.currentQuest.sendAnswer(wordID: currentWord.id, answerType: .synonym)
+        case .synonym:
             self.correctAnswer.onNext(())
-        default:
-            testConfiguration.currentQuest.sendAnswer(wordID: currentWord.id, answerType: .uncorrect)
+        case .uncorrect:
             self.uncorrectAnswer.onNext(())
         }
+        
         currentAttempt += 1
     }
     
@@ -74,7 +76,7 @@ class SimpleInputTestViewModel: ViewModel{
     }
     
     private func uncorrectAnswerAction() {
-        if currentAttempt >= self.testConfiguration.attempCount {
+        if currentAttempt >= self.testConfiguration.currentQuest.attemptCount {
             if self.words.isEmpty {
                 self.testConfiguration.nextQuest()
                 return

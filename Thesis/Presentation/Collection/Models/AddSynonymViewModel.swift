@@ -14,8 +14,8 @@ import RxSwift
 
 class AddSynonymViewModel: ViewModel {
     
-    let synonymsIDs: BehaviorRelay<[String]>
-    let wordID: String
+    let synonymsIDs: BehaviorRelay<[Int]>
+    let wordID: Int
     
     let getAllWords = GetAllWords.default.use().share()
     
@@ -26,7 +26,7 @@ class AddSynonymViewModel: ViewModel {
     lazy var wordsItems = BehaviorRelay<[WordItemModel]>(value:[])
     lazy var wordsItemsSections = wordsItems.map({[SectionModel<String,WordItemModel>(model: "", items: $0 )] })
     
-    init(wordID: String, synonymsIDs: BehaviorRelay<[String]>){
+    init(wordID: Int, synonymsIDs: BehaviorRelay<[Int]>){
         self.wordID = wordID
         self.synonymsIDs = synonymsIDs
     }

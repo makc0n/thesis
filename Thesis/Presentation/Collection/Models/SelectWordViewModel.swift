@@ -14,7 +14,7 @@ import RxDataSources
 
 class SelectWordViewModel: ViewModel {
     
-    let usedWordsIDs: BehaviorRelay<[String]>
+    let usedWordsIDs: BehaviorRelay<[Int]>
        
     let getAllWords = GetAllWords.default.use().share()
     

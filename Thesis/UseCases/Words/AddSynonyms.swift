@@ -32,8 +32,8 @@ class AddSynonyms: SingleUseCase<AddSynonyms.Input, Void> {
 extension AddSynonyms {
     
     struct Input {
-        let wordID: String
-        let synonymsIDs: [String]
+        let wordID: Int
+        let synonymsIDs: [Int]
     }
     
 }

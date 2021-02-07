@@ -29,7 +29,6 @@ enum TestType: Equatable {
         case let .onlySimpleInput(wordIDs):
             return wordIDs.isEmpty ? [.preview, .simpleInput] : [.simpleInput]
         case let .custom(quests, _, _): return quests.map({$0.questType})
-        default: return []
         }
     }
     
@@ -65,6 +64,16 @@ enum TestType: Equatable {
         case .onlyConstructor: return 2
         case .onlySimpleInput: return 3
         case .custom: return 4
+        }
+    }
+    
+    static func fromIndex(index: Int) -> TestType {
+        switch index {
+        case 0: return .fast()
+        case 1: return .onlyChoice()
+        case 2: return .onlyConstructor()
+        case 3: return .onlySimpleInput()
+        default: return .custom(quests: [], countWords: 5, wordIDs: [])
         }
     }
     

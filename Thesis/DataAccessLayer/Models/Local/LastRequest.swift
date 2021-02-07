@@ -12,9 +12,9 @@ struct LastRequest {
     
     var id: String
     var date: Date
-    var answer: Int
-    var attempt: Int
+    var testType: TestType
+    var attepmtType: AttemptType
     var questType: QuestType
-    var complete: Bool    
+    var answerResult: AnswerResult
     
 }

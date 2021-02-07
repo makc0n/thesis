@@ -34,7 +34,7 @@ extension UpdateWord {
         let rus: String?
         let eng: String?
         let transcription: String?
-        let wordID: String
+        let wordID: Int
     }
     
 }

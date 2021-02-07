@@ -33,7 +33,7 @@ class GetWords: ObservableUseCase<GetWords.Input, GetWords.Output> {
 extension GetWords {
     
     struct Input {
-        let wordsIDs: [String]
+        let wordsIDs: [Int]
     }
     
     struct Output {

@@ -23,23 +23,23 @@ enum NavigationRoutes: NavigationRouteType {
     case statisticList
     
 //MARK: - case PreTest
-    case pushPreTest(usedWordsIDs: [Int], testConfiguration: Test)
-    case replacePreTest(usedWordsIDs: [Int], testConfiguration: Test)
+    case pushPreTest(testConfiguration: Test)
+    case replacePreTest(testConfiguration: Test)
     
 //MARK: - case ChoiceTest
-    case pushChoiceTest(words: [Word], testConfiguration: Test)
-    case replaceChoiceTest(words: [Word], testConfiguration: Test)
+    case pushChoiceTest(testConfiguration: Test)
+    case replaceChoiceTest(testConfiguration: Test)
     
 //MARK: - case Constructor
-    case pushConstructor(words: [Word], testConfiguration: Test)
-    case replaceConstructor(words: [Word], testConfiguration: Test)
+    case pushConstructor(testConfiguration: Test)
+    case replaceConstructor(testConfiguration: Test)
     
 //MARK: - case SimpleInput
-    case pushSimpleInput(words: [Word], testConfiguration: Test)
-    case replaceSimpleInput(words: [Word], testConfiguration: Test)
+    case pushSimpleInput(testConfiguration: Test)
+    case replaceSimpleInput(testConfiguration: Test)
     
 //MARK: - case EndTest
-    case replaceEndTest
+    case replaceEndTest(testConfiguration: Test)
 
 //MARK: - case Creating and Editing
     case collection(collection: Collection)
@@ -88,49 +88,49 @@ enum NavigationRoutes: NavigationRouteType {
             }
 //MARK: - PreTest
             
-        case let .pushPreTest(usedWordsIDs, testConfiguration):
+        case let .pushPreTest(testConfiguration):
             return NavigationAction.create(navigationType: .push){
-                self.instantiateController(PreTestViewController.self, storyboardName: Storyboard.test, viewModel: PreTestViewModel(usedWordsIDs: usedWordsIDs, testConfiguration: testConfiguration))
+                self.instantiateController(PreTestViewController.self, storyboardName: Storyboard.test, viewModel: PreTestViewModel(testConfiguration: testConfiguration))
             }
-        case let .replacePreTest(usedWordsIDs, testConfiguration):
+        case let .replacePreTest(testConfiguration):
             return NavigationAction.create(navigationType: .pushAndReplace){
-                self.instantiateController(PreTestViewController.self, storyboardName: Storyboard.test, viewModel: PreTestViewModel(usedWordsIDs: usedWordsIDs, testConfiguration: testConfiguration))
+                self.instantiateController(PreTestViewController.self, storyboardName: Storyboard.test, viewModel: PreTestViewModel(testConfiguration: testConfiguration))
             }
 //MARK: - ChoiceTest
         
-        case let .pushChoiceTest(words, testConfiguration):
+        case let .pushChoiceTest(testConfiguration):
             return NavigationAction.create(navigationType: .push){
-                self.instantiateController(ChoiceTestViewController.self, storyboardName: Storyboard.test, viewModel: ChoiceTestViewModel(words: words, testConfiguration: testConfiguration) )
+                self.instantiateController(ChoiceTestViewController.self, storyboardName: Storyboard.test, viewModel: ChoiceTestViewModel(testConfiguration: testConfiguration) )
             }
-        case let .replaceChoiceTest(words, testConfiguration):
+        case let .replaceChoiceTest(testConfiguration):
             return NavigationAction.create(navigationType: .pushAndReplace){
-                self.instantiateController(ChoiceTestViewController.self, storyboardName: Storyboard.test, viewModel: ChoiceTestViewModel(words: words, testConfiguration: testConfiguration))
+                self.instantiateController(ChoiceTestViewController.self, storyboardName: Storyboard.test, viewModel: ChoiceTestViewModel(testConfiguration: testConfiguration))
             }
 //MARK: - Constructor
             
-        case let .pushConstructor(words, testConfiguration):
+        case let .pushConstructor(testConfiguration):
             return NavigationAction.create(navigationType: .push){
-                self.instantiateController(ConstructorTestViewController.self, storyboardName: Storyboard.test, viewModel: ConstructorTestViewModel(words: words, testConfiguration: testConfiguration))
+                self.instantiateController(ConstructorTestViewController.self, storyboardName: Storyboard.test, viewModel: ConstructorTestViewModel(testConfiguration: testConfiguration))
             }
-        case let .replaceConstructor(words, testConfiguration):
+        case let .replaceConstructor(testConfiguration):
             return NavigationAction.create(navigationType: .pushAndReplace){
-                self.instantiateController(ConstructorTestViewController.self, storyboardName: Storyboard.test, viewModel: ConstructorTestViewModel(words: words, testConfiguration: testConfiguration))
+                self.instantiateController(ConstructorTestViewController.self, storyboardName: Storyboard.test, viewModel: ConstructorTestViewModel(testConfiguration: testConfiguration))
             }
 //MARK: - SimpleInput
         
-        case let .pushSimpleInput(words, testConfiguration):
+        case let .pushSimpleInput(testConfiguration):
             return NavigationAction.create(navigationType: .push){
-                self.instantiateController(SimpleInputTestViewController.self, storyboardName: Storyboard.test, viewModel: SimpleInputTestViewModel(words: words, testConfiguration: testConfiguration))
+                self.instantiateController(SimpleInputTestViewController.self, storyboardName: Storyboard.test, viewModel: SimpleInputTestViewModel(testConfiguration: testConfiguration))
             }
-        case let .replaceSimpleInput(words, testConfiguration):
+        case let .replaceSimpleInput(testConfiguration):
             return NavigationAction.create(navigationType: .pushAndReplace){
-                self.instantiateController(SimpleInputTestViewController.self, storyboardName: Storyboard.test, viewModel: SimpleInputTestViewModel(words: words, testConfiguration: testConfiguration))
+                self.instantiateController(SimpleInputTestViewController.self, storyboardName: Storyboard.test, viewModel: SimpleInputTestViewModel(testConfiguration: testConfiguration))
             }
 //MARK: - EndTest
             
-        case .replaceEndTest:
+        case let .replaceEndTest(testConfiguration):
             return NavigationAction.create(navigationType: .pushAndReplace){
-                self.instantiateController(EndTestViewController.self, storyboardName: Storyboard.test, viewModel: EndTestViewModel())
+                self.instantiateController(EndTestViewController.self, storyboardName: Storyboard.test, viewModel: EndTestViewModel(testConfiguration: testConfiguration))
             }
             
 //MARK: - Creating and Editing

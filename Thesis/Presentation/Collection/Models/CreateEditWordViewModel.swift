@@ -27,7 +27,7 @@ class CreateEditWordViewModel: ViewModel{
     lazy var rus = BehaviorRelay<String?>(value: self.word.rus)
     lazy var imageURL = BehaviorRelay<String?>(value: self.word.imageURL)
     lazy var transcription = BehaviorRelay<String?>(value: self.word.transcription)
-    lazy var synonymsIDs = BehaviorRelay<[String]>(value: self.word.synonymsID)
+    lazy var synonymsIDs = BehaviorRelay<[Int]>(value: self.word.synonymsID)
     
     lazy var synonymsItems = BehaviorRelay<[WordItemModel]>(value:[])
     lazy var synonymSectionsItems = synonymsItems.map({[SectionModel<String,WordItemModel>(model: "", items: $0 )] })

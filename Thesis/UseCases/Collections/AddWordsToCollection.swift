@@ -33,7 +33,7 @@ extension AddWordsToCollection {
     
     struct Input {
         let collectionID: String
-        let wordsIDs: [String]
+        let wordsIDs: [Int]
     }
     
 }

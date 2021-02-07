@@ -37,7 +37,7 @@ extension AddWords {
     }
     
     struct Output {
-        let wordsIDs: [String]
+        let wordsIDs: [Int]
     }
     
 }

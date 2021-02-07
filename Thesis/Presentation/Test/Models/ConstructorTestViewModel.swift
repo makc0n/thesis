@@ -29,8 +29,8 @@ class ConstructorTestViewModel: ViewModel{
     
     lazy var answer = BehaviorRelay<String>(value: "")
     
-    init(words: [Word], testConfiguration: Test) {
-        self.words = words
+    init(testConfiguration: Test) {
+        self.words = testConfiguration.words
         self.testConfiguration = testConfiguration
     }
     
@@ -49,18 +49,13 @@ class ConstructorTestViewModel: ViewModel{
         
         guard let currentWord = currentWord.value else { return }
         
-        let index: String.Index
-        var answer = self.answer.value
+        let answer = self.answer.value + String(cellModel.letter.value)
         
-        if !answer.isEmpty {
-            index = answer.index(after: answer.lastIndex(of: answer.last!)!)
-        } else {
-            index = currentWord.eng.firstIndex(of: currentWord.eng.first!)!
-        }
+        let attemptType: AttemptType = self.currentAttempt == 0 ? .firstAttempt : .correctionAttempt(attempt: self.currentAttempt)
+        
+        let answerResult = testConfiguration.verifyAnswer(wordID: currentWord.id, answer: answer, attempt: attemptType)
 
-
-        if currentWord.eng[index] == cellModel.letter.value {
-            answer = answer + String(currentWord.eng[index])
+        if answerResult == .correct {
             self.answer.accept(answer)
             cellModel.hideCell.onNext(())
             models.accept(models.value.filter({ $0 != cellModel }))

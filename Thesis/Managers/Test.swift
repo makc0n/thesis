@@ -11,8 +11,8 @@ import RxMVVM
 
 class Test {
     
-    private let testType: TestType
-    private lazy var usedWordsIDs: [Int] = self.testType.wordsIDs
+    let testType: TestType
+    lazy var usedWordsIDs: [Int] = self.testType.wordsIDs
     private lazy var wordsCountNeeded: Int = self.wordsCountNeeded
     private lazy var quests: [Quest] = self.testType.quests
     private(set) var words: [Word]
@@ -21,6 +21,7 @@ class Test {
     
     init(testType: TestType){
         self.testType = testType
+        self.words = []
     }
     
     func appendWord(_ word: Word) {
@@ -32,13 +33,15 @@ class Test {
     }
     
     func verifyAnswer(wordID: Int, answer: String, attempt: AttemptType) -> AnswerResult {
+        guard let word = words.first(where: {$0.id == wordID}) else { return .uncorrect }
         
+        return Trainer.instance.consulidateResults(word: word, testType: testType, questType: currentQuest.questType, attempt: attempt, answer: answer)
     }
     
     func nextQuest() {
         
         if quests.isEmpty {
-            Navigator.navigate(route: NavigationRoutes.replaceEndTest)
+            Navigator.navigate(route: NavigationRoutes.replaceEndTest(testConfiguration: self) )
             return
         }
     
@@ -47,13 +50,13 @@ class Test {
         switch self.currentQuest.questType {
         case .preview:
             self.words = []
-            Navigator.navigate(route: NavigationRoutes.replacePreTest(usedWordsIDs: self.usedWordsIDs, testConfiguration: self))
+            Navigator.navigate(route: NavigationRoutes.replacePreTest(testConfiguration: self))
         case .choice:
-            Navigator.navigate(route: NavigationRoutes.replaceChoiceTest(words: self.words, testConfiguration: self))
+            Navigator.navigate(route: NavigationRoutes.replaceChoiceTest(testConfiguration: self))
         case .constructor:
-            Navigator.navigate(route: NavigationRoutes.replaceConstructor(words: self.words, testConfiguration: self))
+            Navigator.navigate(route: NavigationRoutes.replaceConstructor(testConfiguration: self))
         case .simpleInput:
-            Navigator.navigate(route: NavigationRoutes.replaceSimpleInput(words: self.words, testConfiguration: self))
+            Navigator.navigate(route: NavigationRoutes.replaceSimpleInput(testConfiguration: self))
         }
         
     }
