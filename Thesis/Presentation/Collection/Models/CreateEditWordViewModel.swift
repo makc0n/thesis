@@ -15,7 +15,7 @@ import RxDataSources
 
 class CreateEditWordViewModel: ViewModel{
     
-    private let collectionID: String
+    private let collectionID: Int
     private let word: Word
     let controllerType: ControllerType
     
@@ -36,16 +36,16 @@ class CreateEditWordViewModel: ViewModel{
     override init(){
         self.controllerType = .create
         self.word = Word.defaultWord()
-        self.collectionID = ""
+        self.collectionID = 0
     }
     
     init(editWord word: Word){
         self.controllerType = .edit
         self.word = word
-        self.collectionID = ""
+        self.collectionID = 0
     }
     
-    init(addWordToCollection collectionID: String){
+    init(addWordToCollection collectionID: Int){
         self.controllerType = .add
         self.collectionID = collectionID
         self.word = Word.defaultWord()
@@ -83,7 +83,7 @@ class CreateEditWordViewModel: ViewModel{
         AddWords.default.createUseCase(input: AddWords.Input(words: [newWord])).subscribe().disposed(by: disposeBag)
         AddSynonyms.default.createUseCase(input: AddSynonyms.Input(wordID: newWord.id, synonymsIDs: synonymsIDs.value)).subscribe().disposed(by: disposeBag)
         
-        if !collectionID.isEmpty {
+        if collectionID != 0 {
             AddWordsToCollection
                 .default
                 .use(input: AddWordsToCollection.Input(collectionID: collectionID, wordsIDs: [newWord.id]))

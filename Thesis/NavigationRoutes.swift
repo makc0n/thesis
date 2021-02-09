@@ -47,9 +47,9 @@ enum NavigationRoutes: NavigationRouteType {
     case editCollection(collection: Collection)
     case createWord
     case editWord(word: Word)
-    case addWordToCollection(collectionID: String)
-    case selectWords(wordsIDs: BehaviorRelay<[String]>)
-    case addSynonyms(wordID: String, synonymsIDs: BehaviorRelay<[String]>)
+    case addWordToCollection(collectionID: Int)
+    case selectWords(wordsIDs: BehaviorRelay<[Int]>)
+    case addSynonyms(wordID: Int, synonymsIDs: BehaviorRelay<[Int]>)
     
     struct Storyboard {
         static let main = "Main"

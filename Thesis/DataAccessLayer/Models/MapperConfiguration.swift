@@ -127,7 +127,7 @@ class MapperConfiguration {
         
 //MARK: - Collections
         Mapper.register(mappingAlgorithm: { (webCollection: WebCollection) -> Collection in
-            return Collection(id: UUID().uuidString,
+            return Collection(id: Int(arc4random()),
                               name: webCollection.name,
                               completed: 0,
                               wordsIDs: [])

@@ -12,7 +12,7 @@ import RealmSwift
 class RealmUser: Object {
     
     @objc dynamic var userName = ""
-    @objc dynamic var request = RealmRequest()
+    @objc dynamic var request: RealmRequest? = RealmRequest()
     @objc dynamic var countWords: Int = 0
     @objc dynamic var learntWords: Int = 0
     @objc dynamic var countCollection: Int = 0

@@ -12,30 +12,30 @@ struct UpdateRequest {
     
 //MARK: - Fast
     
-    var completeFast: Bool
-    var failFast: Bool
+    var completeFast: Bool = false
+    var failFast: Bool = false
     
 //MARK: - Choice
     
-    var completeChoice: Bool
-    var failChoice: Bool
+    var completeChoice: Bool = false
+    var failChoice: Bool = false
     
 //MARK: - Costructor
     
-    var completeConstructor: Bool
-    var failConstructor: Bool
+    var completeConstructor: Bool = false
+    var failConstructor: Bool = false
     
 //MARK: - SimpleInput
     
-    var completeInput: Bool
-    var failInput: Bool
-    var synonym: Bool
+    var completeInput: Bool = false
+    var failInput: Bool = false
+    var synonym: Bool = false
     
-    var completeFirstAttempt: Bool
-    var failFirstAttempt: Bool
+    var completeFirstAttempt: Bool = false
+    var failFirstAttempt: Bool = false
     
-    var completeCorrectionAttempt: Bool
-    var failCorrectionAttempt: Bool
+    var completeCorrectionAttempt: Bool = false
+    var failCorrectionAttempt: Bool = false
     
     init( testType: TestType, questType: QuestType, attemptType: AttemptType, answerResult: AnswerResult ){
         let complete = answerResult == .correct

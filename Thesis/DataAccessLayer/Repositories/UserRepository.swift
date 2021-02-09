@@ -63,7 +63,7 @@ class UserRepository: UserRepositoryProtocol {
             if let realmUser = self.realm.objects(RealmUser.self).first {
                 
                 try! self.realm.write {
-                    realmUser.request.update(updateRequest: updateRequest)
+                    realmUser.request?.update(updateRequest: updateRequest)
                 }
                 
                 observer(.success(()))

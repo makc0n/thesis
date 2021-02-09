@@ -29,7 +29,7 @@ class SelectWordViewModel: ViewModel {
     
     
     
-    init(_ usedWordsIDs: BehaviorRelay<[String]>){
+    init(_ usedWordsIDs: BehaviorRelay<[Int]>){
         self.usedWordsIDs = usedWordsIDs
     }
     

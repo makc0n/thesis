@@ -19,9 +19,9 @@ enum TestType: Equatable {
     
     var questTypes: [QuestType] {
         switch self {
-        case let .fast(wordIDs):
+        case .fast:
             let types: [QuestType] = [ .choice, .constructor, .simpleInput]
-            return wordIDs.isEmpty ? [.preview] + types  : types
+            return [.preview] + types
         case let .onlyChoice(wordIDs):
             return wordIDs.isEmpty ? [.preview, .choice] : [.choice]
         case let .onlyConstructor(wordIDs):

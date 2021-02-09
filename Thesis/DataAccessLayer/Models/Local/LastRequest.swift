@@ -10,7 +10,7 @@ import Foundation
 
 struct LastRequest {
     
-    var id: String
+    var id: Int
     var date: Date
     var testType: TestType
     var attepmtType: AttemptType

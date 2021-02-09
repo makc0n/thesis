@@ -25,7 +25,7 @@ class CreateEditCollectionViewModel: ViewModel {
     }
     
     lazy var name = BehaviorRelay<String?>(value: collection.name)
-    lazy var usedIDs = BehaviorRelay<[String]>(value: collection.wordsIDs)
+    lazy var usedIDs = BehaviorRelay<[Int]>(value: collection.wordsIDs)
     
     let addWord = PublishSubject<Void>()
     let complete = PublishSubject<Void>()

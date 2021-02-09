@@ -16,13 +16,14 @@ class PreTestViewModel: ViewModel{
     let usedWordsIDs: [Int]
     unowned let testConfiguration: Test
     
-    let getUser = GetUser.default.use().share()
-    lazy var getWords = GetWords.default.use(input: GetWords.Input(wordsIDs: self.usedWordsIDs)).share()
+    let getUser = GetUser.default.use()
+    lazy var getWords = GetWords.default.use(input: GetWords.Input(wordsIDs: self.usedWordsIDs))
     
     let currentWord = BehaviorRelay<Word?>(value: nil)
     
     let nextWord = PublishSubject<Void>()
     let acceptWord = PublishSubject<Void>()
+    let willAppear = PublishSubject<Void>()
     
     lazy var wordEng = currentWord.unwrap().map({$0.eng})
     lazy var wordRus = currentWord.unwrap().map({$0.rus})
@@ -34,9 +35,11 @@ class PreTestViewModel: ViewModel{
     }
     
     override func subscribe() {
-        
-        nextWord.withLatestFrom(Observable.combineLatest(getUser, getWords))
-            .map({PreTestAdapter.smartRandomWord(fromWords: $0.1.words, forUser: $0.0.user, ignoreWordIDs: self.testConfiguration.words.map({$0.id})) })
+        Observable.combineLatest(willAppear.take(1), nextWord, getUser, getWords)
+            .map({[self] _,_, user, words in
+                return PreTestAdapter.smartRandomWord(fromWords: words.words, forUser: user.user, ignoreWordIDs: self.testConfiguration.words.map({$0.id}))
+            })
+            .debug()
             .bind(to: currentWord)
             .disposed(by: disposeBag)
                 
@@ -46,13 +49,14 @@ class PreTestViewModel: ViewModel{
     }
     
     private func acceptWordAction() {
+        
         guard let word = currentWord.value else {
             return
         }
         
         self.testConfiguration.appendWord(word)
-        
         nextWord.onNext(())
+        
     }
     
     

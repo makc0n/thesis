@@ -32,8 +32,8 @@ class RemoveWordsFromCollection: SingleUseCase<RemoveWordsFromCollection.Input, 
 extension RemoveWordsFromCollection {
     
     struct Input {
-        let collectionID: String
-        let wordsIDs: [String]
+        let collectionID: Int
+        let wordsIDs: [Int]
     }
     
 }

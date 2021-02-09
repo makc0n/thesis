@@ -32,7 +32,7 @@ class AddWordsToCollection: SingleUseCase<AddWordsToCollection.Input, Void> {
 extension AddWordsToCollection {
     
     struct Input {
-        let collectionID: String
+        let collectionID: Int
         let wordsIDs: [Int]
     }
     

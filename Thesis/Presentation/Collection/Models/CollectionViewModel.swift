@@ -24,7 +24,7 @@ class CollectionViewModel: ViewModel {
     let addWord = PublishSubject<Void>()
     let longPress = PublishSubject<Void>()
     
-    lazy var wordsIDs = BehaviorRelay<[String]>(value: self.collection.wordsIDs)
+    lazy var wordsIDs = BehaviorRelay<[Int]>(value: self.collection.wordsIDs)
     
     lazy var wordItems = BehaviorRelay<[WordItemModel]>(value: [])
     lazy var wordSectionsItems = wordItems.map({ [SectionModel(model: "", items: $0)] })
@@ -63,13 +63,13 @@ class CollectionViewModel: ViewModel {
         super.subscribe()
     }
     
-    private func addWordsToCollection(wordsIDs: [String]) {
+    private func addWordsToCollection(wordsIDs: [Int]) {
         if wordsIDs.count == collection.wordsIDs.count {return}
         collection.wordsIDs = collection.wordsIDs + wordsIDs
         AddWordsToCollection.default.use(input: AddWordsToCollection.Input(collectionID: self.collection.id, wordsIDs: wordsIDs)).subscribe().disposed(by: disposeBag)
     }
     
-    private func deleteWord(wordID: String) {
+    private func deleteWord(wordID: Int) {
         RemoveWordsFromCollection.default.use(input: .init(collectionID: self.collection.id, wordsIDs: [wordID])).subscribe().disposed(by: disposeBag)
         wordsIDs.accept(wordsIDs.value.filter({$0 != wordID}))
     }

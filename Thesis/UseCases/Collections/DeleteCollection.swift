@@ -33,7 +33,7 @@ class DeleteCollection: SingleUseCase<DeleteCollection.Input, Void> {
 extension DeleteCollection {
     
     struct Input {
-        let collectionID: String
+        let collectionID: Int
     }
     
     

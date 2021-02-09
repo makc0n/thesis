@@ -11,7 +11,7 @@ import RealmSwift
 
 class RealmRequest: Object {
     
-    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var id: Int = 0
     
 //MARK: - Fast
     @objc dynamic var completeFast: Int = 0

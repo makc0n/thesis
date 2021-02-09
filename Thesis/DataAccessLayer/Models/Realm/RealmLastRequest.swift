@@ -11,7 +11,7 @@ import RealmSwift
 
 class RealmLastRequest: Object {
     
-    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var id: Int = 0
     @objc dynamic var date: Date = Date()
     @objc dynamic var testType: Int = 0
     @objc dynamic var attemptType: Int = 0

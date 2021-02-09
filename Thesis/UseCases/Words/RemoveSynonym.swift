@@ -32,8 +32,8 @@ class RemoveSynonym: SingleUseCase<RemoveSynonym.Input, Void> {
 extension RemoveSynonym {
     
     struct Input {
-        let wordID: String
-        let synonymID: String
+        let wordID: Int
+        let synonymID: Int
     }
     
 }

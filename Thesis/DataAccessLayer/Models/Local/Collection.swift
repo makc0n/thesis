@@ -9,13 +9,13 @@
 import Foundation
 
 struct Collection {
-    let id: String
+    let id: Int
     var name: String
     var completed: Int
     var count: Int { self.wordsIDs.count }
-    var wordsIDs: [String]
+    var wordsIDs: [Int]
     
     static func defaultCollection() -> Collection {
-        return Collection(id: UUID().uuidString, name: "", completed: 0, wordsIDs: [])
+        return Collection(id: Int(arc4random()), name: "", completed: 0, wordsIDs: [])
     }
 }

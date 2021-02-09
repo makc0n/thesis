@@ -32,7 +32,7 @@ class RemoveWord: SingleUseCase<RemoveWord.Input, Void> {
 extension RemoveWord {
     
     struct Input {
-        let wordID: String
+        let wordID: Int
     }
     
 }

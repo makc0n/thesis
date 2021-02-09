@@ -12,6 +12,7 @@ class PreTestAdapter {
     static func smartRandomWord(fromWords words: [Word], forUser user: User, ignoreWordIDs: [Int] = []) -> Word {
         var increasedPriority = user.averagePriority
         while true {
+            print("smartRandomWord")
             if let word = words.randomElement() {
                 if (word.priority <= max(user.averagePriority, increasedPriority) || word.score <= user.averageScore) && !ignoreWordIDs.contains(word.id) {
                     return word

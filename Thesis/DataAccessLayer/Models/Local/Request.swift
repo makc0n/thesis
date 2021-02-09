@@ -10,7 +10,7 @@ import Foundation
 
 struct Request {
     
-    let id:String
+    let id: Int
     
     var requestCount:Int {
         self.completeRequest + self.failRequest
@@ -65,7 +65,7 @@ struct Request {
     var failCorrectionAttempt:Int
         
     static func defaultRequest() -> Request {
-        return Request(id: UUID().uuidString,
+        return Request(id: Int(arc4random()),
                        completeFast: 0,
                        failFast: 0,
                        completeChoice: 0,

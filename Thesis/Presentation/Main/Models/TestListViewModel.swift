@@ -12,7 +12,7 @@ import RxSwift
 
 class TestListViewModel: ViewModel{
     
-    
+    let words = GetAllWords.default.use().map({$0.words.map({$0.id})})
     let fastTestAction = PublishSubject<Void>()
     
     
@@ -20,12 +20,14 @@ class TestListViewModel: ViewModel{
         super.subscribe()
         
         
-        fastTestAction.bind(onNext: fastTest).disposed(by: disposeBag)
+        fastTestAction.withLatestFrom(words).bind(onNext: { [weak self] ids in
+            self?.fastTest(wordsID: ids)
+        }).disposed(by: disposeBag)
         
     }
     
-    private func fastTest(){
-        Test.instance.setDefault()
-        Navigator.navigate(route: NavigationRoutes.pushPreTest)
+    private func fastTest(wordsID: [Int]){
+        let test = Test(testType: .fast(wordIDs: wordsID))
+        test.nextQuest()
     }
 }

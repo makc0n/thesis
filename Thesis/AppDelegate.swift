@@ -30,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-//        do{
-//            try loadDatabase()
-//        } catch{
-//            print(error)
-//        }
+        do{
+            try loadDatabase()
+        } catch{
+            print(error)
+        }
 
         return true
     }

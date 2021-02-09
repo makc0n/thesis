@@ -10,13 +10,13 @@ import Foundation
 import RealmSwift
 
 class RealmCollection: Object, RealmIdentifiableType {
-    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var completed: Int = 0
     @objc dynamic var learnt: Bool {
         return self.completed == self.wordIDs.count
     }
-    var wordIDs = List<String>()
+    var wordIDs = List<Int>()
 
     
     override class func primaryKey() -> String? {

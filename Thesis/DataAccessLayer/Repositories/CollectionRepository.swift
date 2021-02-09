@@ -16,11 +16,11 @@ class CollectionRepository: CollectionRepositoryProtocol {
     private let realm = Realms.collections.create()
     
 //MARK: -getting actions
-    func getCollection(collectionID: String) -> Observable<Collection> {
+    func getCollection(collectionID: Int) -> Observable<Collection> {
         return Observable.collection(from: self.realm.objects(RealmCollection.self).filter("id == %@", collectionID)).map(Mapper.map)
     }
     
-    func getCollections(collectionIDs: [String]) -> Observable<[Collection]> {
+    func getCollections(collectionIDs: [Int]) -> Observable<[Collection]> {
         return Observable.collection(from: self.realm.objects(RealmCollection.self).filter("id IN %@",collectionIDs).sorted(byKeyPath: "name")).map({ $0.map(Mapper.map) })
     }
     
@@ -43,7 +43,7 @@ class CollectionRepository: CollectionRepositoryProtocol {
     }
     
 //MARK: -change actions
-    func addWords(wordIDs: [String], toCollection collectionID: String) -> Single<Void> {
+    func addWords(wordIDs: [Int], toCollection collectionID: Int) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmCollection = self.realm.object(ofType: RealmCollection.self, forPrimaryKey: collectionID) {
                 var words = wordIDs
@@ -59,7 +59,7 @@ class CollectionRepository: CollectionRepositoryProtocol {
         })
     }
     
-    func removeWords(wordIDs: [String], fromCollection collectionID: String) -> Single<Void> {
+    func removeWords(wordIDs: [Int], fromCollection collectionID: Int) -> Single<Void> {
         return Single.create(subscribe: { observer in
             if let realmCollection = self.realm.object(ofType: RealmCollection.self, forPrimaryKey: collectionID) {
                 let words = realmCollection.wordIDs.toArray().filter({!wordIDs.contains($0)})
@@ -90,7 +90,7 @@ class CollectionRepository: CollectionRepositoryProtocol {
         })
     }
    
-    func deleteCollection(collectionID: String) -> Single<Void> {
+    func deleteCollection(collectionID: Int) -> Single<Void> {
         return Single.create(subscribe: {observer in
             if let collection = self.realm.object(ofType: RealmCollection.self, forPrimaryKey: collectionID) {
                 try! self.realm.write {

@@ -26,7 +26,7 @@ class UpdateWordByQuest: SingleUseCase<UpdateWordByQuest.Input, Void> {
     }
     
     override func createUseCase(input: Input) -> Single<Void> {
-        return repository.updateWordByQuest(wordID: input.wordID, completed: input.completed, score: input.score, priority: input.priority, testType: input.testType, questType: input.questType, attemptType: input.attemptType)
+        return repository.updateWordByQuest(wordID: input.wordID, score: input.score, priority: input.priority, answerResult: input.answerResult, testType: input.testType, questType: input.questType, attemptType: input.attemptType)
     }
     
 }

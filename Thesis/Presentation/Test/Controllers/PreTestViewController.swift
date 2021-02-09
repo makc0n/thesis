@@ -30,7 +30,7 @@ class PreTestViewController: ViewController<PreTestViewModel> {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(to: viewModel.nextWord).disposed(by: disposeBag)
         
-        
+        rx.willAppear.bind(to: viewModel.willAppear).disposed(by: disposeBag)
         super.bind(viewModel: viewModel)
     }
     

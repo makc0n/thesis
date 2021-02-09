@@ -33,7 +33,7 @@ class GetCollection: ObservableUseCase<GetCollection.Input, GetCollection.Output
 extension GetCollection {
     
     struct Input {
-        let collectionID: String
+        let collectionID: Int
     }
     
     struct Output {
