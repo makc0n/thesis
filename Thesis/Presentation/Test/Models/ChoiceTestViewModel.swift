@@ -18,8 +18,7 @@ class ChoiceTestViewModel: ViewModel{
     let testConfiguration: Test
     var currentAttempt = 0
     
-    let getAllWords = GetAllWords.default.use().share()
-    let getWords = GetWords.default
+    let getAllWords = GetAllWords.default.use()
     
     let uncorrectAnswer = PublishSubject<Void>()
     let correctAnswer = PublishSubject<Void>()
@@ -41,9 +40,9 @@ class ChoiceTestViewModel: ViewModel{
         self.currentWord.accept(words.removeFirst())
         self.cellSelected.bind(onNext: modelSelectedAction(cellModel:)).disposed(by: disposeBag)
         
-        currentWord.unwrap().withLatestFrom(getAllWords, resultSelector: { word, allWords -> [ChoiceItemModel] in
+        Observable.combineLatest(currentWord.unwrap(), getAllWords).map({ word, allWords -> [ChoiceItemModel] in
             let synonyms = allWords.words.filter({word.synonymsID.contains($0.id) })
-            var result: [Word] = []
+            var result: [Word] = [word]
             
             if !synonyms.isEmpty {
                 result.append(synonyms.randomElement()!)

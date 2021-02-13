@@ -35,6 +35,7 @@ class ConstructorTestViewModel: ViewModel{
     }
     
     override func subscribe() {
+        currentWord.accept(words.removeFirst())
         
         currentWord.unwrap().map({ $0.eng.shuffled().map(ConstructorItemModel.init) }).bind(to: models).disposed(by: disposeBag)
         

@@ -11,6 +11,7 @@
 		7F02CD8E24EEB54D001E7A83 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02CD8D24EEB54D001E7A83 /* Word.swift */; };
 		7F02CD9024EEB7B2001E7A83 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02CD8F24EEB7B2001E7A83 /* Request.swift */; };
 		7F02CD9224EEEBCE001E7A83 /* LastRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02CD9124EEEBCE001E7A83 /* LastRequest.swift */; };
+		7F140EE525D8043000A53EB2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F140EE425D8043000A53EB2 /* .gitignore */; };
 		7F1A7516241E38420019F992 /* RealmWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A7515241E38420019F992 /* RealmWord.swift */; };
 		7F1A7518241E3BCA0019F992 /* RealmLastRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A7517241E3BCA0019F992 /* RealmLastRequest.swift */; };
 		7F1A751A241E3D930019F992 /* RealmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A7519241E3D930019F992 /* RealmRequest.swift */; };
@@ -117,6 +118,10 @@
 		7FF298EE243FD95900860EDF /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF298ED243FD95900860EDF /* UITableView+Rx.swift */; };
 		7FF45C8624EE944600D98F21 /* Realms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF45C8524EE944600D98F21 /* Realms.swift */; };
 		7FF45C8D24EE956200D98F21 /* MapperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF45C8C24EE956200D98F21 /* MapperConfiguration.swift */; };
+		7FFCE5EB25D7C67700566D1F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCE5EA25D7C67700566D1F /* ViewModel.swift */; };
+		7FFCE5F225D7C71400566D1F /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCE5F125D7C71400566D1F /* UIViewController+Rx.swift */; };
+		7FFCE5FC25D7C7EE00566D1F /* LoaderViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCE5FA25D7C7EE00566D1F /* LoaderViewInteractor.swift */; };
+		7FFCE5FD25D7C7EE00566D1F /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCE5FB25D7C7EE00566D1F /* LoaderView.swift */; };
 		7FFE19342523C6F300804AFC /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE19332523C6F300804AFC /* GetUser.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +131,7 @@
 		7F02CD8D24EEB54D001E7A83 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		7F02CD8F24EEB7B2001E7A83 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		7F02CD9124EEEBCE001E7A83 /* LastRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastRequest.swift; sourceTree = "<group>"; };
+		7F140EE425D8043000A53EB2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7F1A7515241E38420019F992 /* RealmWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWord.swift; sourceTree = "<group>"; };
 		7F1A7517241E3BCA0019F992 /* RealmLastRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmLastRequest.swift; sourceTree = "<group>"; };
 		7F1A7519241E3D930019F992 /* RealmRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRequest.swift; sourceTree = "<group>"; };
@@ -235,6 +241,10 @@
 		7FF298ED243FD95900860EDF /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
 		7FF45C8524EE944600D98F21 /* Realms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realms.swift; sourceTree = "<group>"; };
 		7FF45C8C24EE956200D98F21 /* MapperConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperConfiguration.swift; sourceTree = "<group>"; };
+		7FFCE5EA25D7C67700566D1F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7FFCE5F125D7C71400566D1F /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		7FFCE5FA25D7C7EE00566D1F /* LoaderViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewInteractor.swift; sourceTree = "<group>"; };
+		7FFCE5FB25D7C7EE00566D1F /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		7FFE19332523C6F300804AFC /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		C194134387B24471EB087C30 /* Pods-Thesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thesis.release.xcconfig"; path = "Target Support Files/Pods-Thesis/Pods-Thesis.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,7 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				7F3B651C24296158002D953E /* Realm.swift */,
+				7FFCE5EA25D7C67700566D1F /* ViewModel.swift */,
 				7FF298ED243FD95900860EDF /* UITableView+Rx.swift */,
+				7FFCE5F125D7C71400566D1F /* UIViewController+Rx.swift */,
 				7F3887352464AC1C00DA3A77 /* Date.swift */,
 				7FC3C3142523B41800A1A756 /* Bool.swift */,
 				7F85DF6825C72043000E8B94 /* Array.swift */,
@@ -367,6 +379,7 @@
 		7F5FA22523F9F15A00647412 /* ReuseableUI */ = {
 			isa = PBXGroup;
 			children = (
+				7FFCE5F925D7C7EE00566D1F /* Loader */,
 				7FB656F723FA2588005D85DB /* CustomView.swift */,
 				7FD0512023FF1882002859B1 /* CornerButton.swift */,
 				7F3FC598243265900088D369 /* TextField.swift */,
@@ -390,6 +403,7 @@
 		7F985FC223F5F6ED0099951E = {
 			isa = PBXGroup;
 			children = (
+				7F140EE425D8043000A53EB2 /* .gitignore */,
 				7F985FCD23F5F6ED0099951E /* Thesis */,
 				7F985FCC23F5F6ED0099951E /* Products */,
 				E06B7572E748A5947099A483 /* Pods */,
@@ -676,6 +690,15 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		7FFCE5F925D7C7EE00566D1F /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				7FFCE5FA25D7C7EE00566D1F /* LoaderViewInteractor.swift */,
+				7FFCE5FB25D7C7EE00566D1F /* LoaderView.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		E06B7572E748A5947099A483 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +776,7 @@
 				7F398887242F4465002E9F5A /* ChoiceCollectionViewCell.xib in Resources */,
 				7F387C1B24303CF600D8D8EF /* ConstructorCollectionViewCell.xib in Resources */,
 				7F478956245F3A8200D4203C /* StatisticTableViewCell.xib in Resources */,
+				7F140EE525D8043000A53EB2 /* .gitignore in Resources */,
 				7FD0511D23FF0C61002859B1 /* SwitchView.xib in Resources */,
 				7F3FEB892468A2710025214F /* 8000.json in Resources */,
 				7F377FA223FE08A30081CDDD /* Assets.xcassets in Resources */,
@@ -816,6 +840,8 @@
 				7F85DF6925C72043000E8B94 /* Array.swift in Sources */,
 				7FFE19342523C6F300804AFC /* GetUser.swift in Sources */,
 				7F69E2E02510C0C900C5B5BA /* CollectionRepository.swift in Sources */,
+				7FFCE5FC25D7C7EE00566D1F /* LoaderViewInteractor.swift in Sources */,
+				7FFCE5EB25D7C67700566D1F /* ViewModel.swift in Sources */,
 				7F3861452431694000DFF244 /* CreateEditWordViewController.swift in Sources */,
 				7F2714E125210AE2003C397E /* DeleteCollection.swift in Sources */,
 				7F5FA23323F9F58300647412 /* StatisticViewModel.swift in Sources */,
@@ -856,7 +882,9 @@
 				7F398883242F42DD002E9F5A /* ChoiceTestViewController.swift in Sources */,
 				7FC3C3112523A96700A1A756 /* UserRepository.swift in Sources */,
 				7F2714EF252122D5003C397E /* PreTestAdapter.swift in Sources */,
+				7FFCE5F225D7C71400566D1F /* UIViewController+Rx.swift in Sources */,
 				7F746B63251525CA0086739C /* GetCollection.swift in Sources */,
+				7FFCE5FD25D7C7EE00566D1F /* LoaderView.swift in Sources */,
 				7FC3C3152523B41800A1A756 /* Bool.swift in Sources */,
 				7F5FA22B23F9F48900647412 /* TestListViewModel.swift in Sources */,
 				7F3850152466F35A005AD488 /* WebWord.swift in Sources */,

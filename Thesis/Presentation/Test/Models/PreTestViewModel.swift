@@ -14,7 +14,7 @@ import RxCocoa
 class PreTestViewModel: ViewModel{
     
     let usedWordsIDs: [Int]
-    unowned let testConfiguration: Test
+    let testConfiguration: Test
     
     let getUser = GetUser.default.use()
     lazy var getWords = GetWords.default.use(input: GetWords.Input(wordsIDs: self.usedWordsIDs))
@@ -35,17 +35,24 @@ class PreTestViewModel: ViewModel{
     }
     
     override func subscribe() {
-        Observable.combineLatest(willAppear.take(1), nextWord, getUser, getWords)
-            .map({[self] _,_, user, words in
-                return PreTestAdapter.smartRandomWord(fromWords: words.words, forUser: user.user, ignoreWordIDs: self.testConfiguration.words.map({$0.id}))
-            })
-            .debug()
+
+        let base = Observable.combineLatest(getUser.map({$0.user}), getWords.map({$0.words}))
+        
+        base.map(generateRandomWord).take(1).bind(to: currentWord).disposed(by: disposeBag)
+        
+        nextWord.withLatestFrom(base)
+            .map(generateRandomWord)
             .bind(to: currentWord)
             .disposed(by: disposeBag)
-                
+        
+        
         acceptWord.bind(onNext: acceptWordAction).disposed(by: disposeBag)
         
         super.subscribe()
+    }
+    
+    private func generateRandomWord(user: User, words: [Word]) -> Word? {
+        return PreTestAdapter.smartRandomWord(fromWords: words, forUser: user)
     }
     
     private func acceptWordAction() {

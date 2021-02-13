@@ -16,7 +16,7 @@ class ChoiceCollectionViewCell: CollectionViewCell<ChoiceItemModel> {
     @IBOutlet weak var frameView: CustomView!
     
     override func bind(viewModel: ChoiceItemModel) {
-//        viewModel.wordEng.bind(to: titleLabel.rx.text).disposed(by: reusableDisposeBag)
+        viewModel.wordEng.bind(to: titleLabel.rx.text).disposed(by: reusableDisposeBag)
         frameView.backgroundColor = .white
         super.bind(viewModel: viewModel)
     }

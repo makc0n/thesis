@@ -13,6 +13,39 @@ import CleanMapper
 class MapperConfiguration {
 
     static func configure() {
+        
+//MARK: - User to RealmUser
+        Mapper.register(mappingAlgorithm: {(user: User) -> RealmUser in
+            let realmUser = RealmUser()
+            realmUser.userName = user.userName
+            realmUser.request = Mapper.map(user.request)
+            realmUser.countWords = user.countWords
+            realmUser.learntWords = user.learntWords
+            realmUser.countCollection = user.countCollection
+            realmUser.learntCollection = user.learntCollection
+            realmUser.lastVisitDate = user.lastVisitDate
+            realmUser.averagePriority = user.averagePriority
+            realmUser.averageScore = user.averageScore
+            realmUser.stepForPriority = user.stepForPriority
+            realmUser.totalScore = user.totalScore
+            
+            return realmUser
+        })
+        
+//MARK: RealmUser to User
+        Mapper.register(mappingAlgorithm: {(realmUser: RealmUser) -> User in
+            return User(userName: realmUser.userName,
+                        request: Mapper.map(realmUser.request),
+                        countWords: realmUser.countWords,
+                        learntWords: realmUser.learntWords,
+                        countCollection: realmUser.countCollection,
+                        learntCollection: realmUser.learntCollection,
+                        lastVisitDate: realmUser.lastVisitDate,
+                        averagePriority: realmUser.averagePriority,
+                        averageScore: realmUser.averageScore,
+                        stepForPriority: realmUser.stepForPriority,
+                        totalScore: realmUser.totalScore)
+        })
 
 //MARK: - Word
         Mapper.register(mappingAlgorithm: { (webWord:WebWord) -> Word in

@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import RxMVVM
+
+extension ViewModel {
+    
+    func loadingStarted() {
+        isLoading.onNext(true)
+    }
+    func loadingEnded() {
+        isLoading.onNext(false)
+    }
+}

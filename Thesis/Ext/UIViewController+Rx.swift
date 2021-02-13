@@ -1,5 +1,5 @@
 //
-//  UIViewController.swift
+//  UIViewController+Rx.swift
 //  Thesis
 //
 //  Created by Максим Василаки on 13.02.2021.
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 
-extension UIViewController {
+extension Reactive where Base: UIViewController {
     
     private func getHeight(from notification: Notification) -> CGFloat {
         guard let endFrameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {

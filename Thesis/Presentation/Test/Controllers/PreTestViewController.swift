@@ -17,10 +17,16 @@ class PreTestViewController: ViewController<PreTestViewModel> {
     @IBOutlet weak var allreadyButton: CornerButton!
     @IBOutlet weak var switchView: SwitchView!
     
+    lazy var loaderView = LoaderViewInteractor(for: self.view)
+    
     override func bind(viewModel: PreTestViewModel) {
         
         viewModel.currentWord.unwrap().bind(to: switchView.rx.word).disposed(by: disposeBag)
-        viewModel.currentWord.unwrap().map({$0.rus}).bind(to: answerLabel.rx.text).disposed(by: disposeBag)
+        viewModel.currentWord.unwrap().map({$0.eng}).bind(to: answerLabel.rx.text).disposed(by: disposeBag)
+        
+        viewModel.isLoading.bind(onNext: {[weak self] isLoading in
+            self?.loaderView.set(isLoading)
+        }).disposed(by: disposeBag)
         
         nextButton.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
@@ -30,7 +36,7 @@ class PreTestViewController: ViewController<PreTestViewModel> {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(to: viewModel.nextWord).disposed(by: disposeBag)
         
-        rx.willAppear.bind(to: viewModel.willAppear).disposed(by: disposeBag)
+        rx.didAppear.bind(to: viewModel.willAppear).disposed(by: disposeBag)
         super.bind(viewModel: viewModel)
     }
     

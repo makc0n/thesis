@@ -13,7 +13,7 @@ class Test {
     
     let testType: TestType
     lazy var usedWordsIDs: [Int] = self.testType.wordsIDs
-    private lazy var wordsCountNeeded: Int = self.wordsCountNeeded
+    private lazy var wordsCountNeeded: Int = self.testType.wordsCountNeeded
     private lazy var quests: [Quest] = self.testType.quests
     private(set) var words: [Word]
     private var stats = [ Int : TestStatistic ]()
@@ -49,8 +49,12 @@ class Test {
         
         switch self.currentQuest.questType {
         case .preview:
-            self.words = []
-            Navigator.navigate(route: NavigationRoutes.replacePreTest(testConfiguration: self))
+            if self.words.isEmpty {
+                Navigator.navigate(route: NavigationRoutes.pushPreTest(testConfiguration: self))
+            } else {
+                self.words = []
+                Navigator.navigate(route: NavigationRoutes.replacePreTest(testConfiguration: self))
+            }
         case .choice:
             Navigator.navigate(route: NavigationRoutes.replaceChoiceTest(testConfiguration: self))
         case .constructor:
