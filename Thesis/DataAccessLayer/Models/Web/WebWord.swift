@@ -8,23 +8,23 @@
 
 import Foundation
 
-class WebWord: Decodable {
+class WebWord: Codable {
     
     var rus:String
     var eng:String
     var transcription:String
     
-    enum CodingKeys: String, CodingKey {
-      case rus
-      case eng
-      case trans
-    }
-    
-    required init(from decoder:Decoder) throws{
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.rus = try container.decode(String.self, forKey: .rus)
-        self.eng = try container.decode(String.self, forKey: .eng)
-        self.transcription = try container.decode(String.self, forKey: .trans)
-        
-    }
+//    enum CodingKeys: String, CodingKey {
+//      case rus
+//      case eng
+//      case trans
+//    }
+//
+//    required init(from decoder:Decoder) throws{
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.rus = try container.decode(String.self, forKey: .rus)
+//        self.eng = try container.decode(String.self, forKey: .eng)
+//        self.transcription = try container.decode(String.self, forKey: .trans)
+//
+//    }
 }

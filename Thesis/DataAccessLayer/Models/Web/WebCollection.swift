@@ -9,20 +9,20 @@
 import Foundation
 
 
-class WebCollection: Decodable {
+class WebCollection: Codable {
     
     var name:String
     var words: [WebWord]
     
-    enum CodingKeys: String, CodingKey {
-        case name
-        case words
-        
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case name
+//        case words
+//
+//    }
     
-    required init(from decoder:Decoder) throws{
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.words = try container.decode([WebWord].self, forKey: .words)
-    }
+//    required init(from decoder:Decoder) throws{
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.words = try container.decode([WebWord].self, forKey: .words)
+//    }
 }

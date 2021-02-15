@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    private func loadDatabase() throws{
+    private func loadDatabase() throws {
         
         Realms.deleteAllRealms()
         

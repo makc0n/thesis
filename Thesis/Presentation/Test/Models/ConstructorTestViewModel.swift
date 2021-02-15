@@ -39,9 +39,17 @@ class ConstructorTestViewModel: ViewModel{
         
         currentWord.unwrap().map({ $0.eng.shuffled().map(ConstructorItemModel.init) }).bind(to: models).disposed(by: disposeBag)
         
-        cellSelected.bind(onNext: cellSelectedAction(cellModel:)).disposed(by: disposeBag)
-        correctAnswer.bind(onNext: correctAnswerAction).disposed(by: disposeBag)
-        uncorrectAnswer.bind(onNext: uncorrectAnswerAction).disposed(by: disposeBag)
+        cellSelected.bind(onNext: {[weak self] cellModel in
+            self?.cellSelectedAction(cellModel: cellModel)
+        }).disposed(by: disposeBag)
+        
+        correctAnswer.bind(onNext: {[weak self] in
+                            self?.correctAnswerAction()
+        }).disposed(by: disposeBag)
+        
+        uncorrectAnswer.bind(onNext: { [weak self] in
+            self?.uncorrectAnswerAction()
+        }).disposed(by: disposeBag)
         
         super.subscribe()
     }
@@ -52,7 +60,7 @@ class ConstructorTestViewModel: ViewModel{
         
         let answer = self.answer.value + String(cellModel.letter.value)
         
-        let attemptType: AttemptType = self.currentAttempt == 0 ? .firstAttempt : .correctionAttempt(attempt: self.currentAttempt)
+        let attemptType: AttemptType = AttemptType.fromIndex(index: self.currentAttempt)
         
         let answerResult = testConfiguration.verifyAnswer(wordID: currentWord.id, answer: answer, attempt: attemptType)
 
