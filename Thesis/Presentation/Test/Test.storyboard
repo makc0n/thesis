@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,24 +14,24 @@
             <objects>
                 <viewController storyboardIdentifier="SimpleInputTestViewController" hidesBottomBarWhenPushed="YES" id="1tB-Vb-7sW" customClass="SimpleInputTestViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tGX-QL-Otk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFM-KO-bBw">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-8U-gVD" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="314.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="464.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPk-gf-w8c">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="232"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMl-sL-6qt" customClass="SwitchView" customModule="Thesis" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="16" width="240" height="125"/>
+                                                        <rect key="frame" x="40" y="16" width="334" height="200"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="OMl-sL-6qt" firstAttribute="leading" secondItem="EPk-gf-w8c" secondAttribute="leading" constant="40" id="CvI-cx-avg"/>
                                                     <constraint firstAttribute="trailing" secondItem="OMl-sL-6qt" secondAttribute="trailing" constant="40" id="GMx-4n-ers"/>
@@ -38,8 +39,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="OMl-sL-6qt" secondAttribute="bottom" constant="16" id="YyD-bl-Ihg"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSQ-vb-Yum" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="199" width="288" height="38"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSQ-vb-Yum" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="274" width="382" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.62704560279999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="mrJ-0n-dbi"/>
@@ -55,8 +56,8 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j9w-Cn-gpq" customClass="TextField" customModule="Thesis" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="157" width="288" height="34"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <rect key="frame" x="16" y="232" width="382" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="h10-cU-FM2"/>
                                                 </constraints>
@@ -64,7 +65,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="EPk-gf-w8c" secondAttribute="trailing" id="4G5-Iq-Vc1"/>
                                             <constraint firstItem="iSQ-vb-Yum" firstAttribute="top" secondItem="j9w-Cn-gpq" secondAttribute="bottom" constant="8" id="6c2-nO-fzD"/>
@@ -78,7 +79,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="MVb-8U-gVD" firstAttribute="height" secondItem="bFM-KO-bBw" secondAttribute="height" multiplier="0.6" id="0Eh-l3-48h"/>
                                     <constraint firstItem="MVb-8U-gVD" firstAttribute="top" secondItem="bFM-KO-bBw" secondAttribute="top" id="F1u-HY-GMq"/>
@@ -88,7 +89,8 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ehR-69-TAl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EPk-gf-w8c" firstAttribute="height" secondItem="ehR-69-TAl" secondAttribute="height" multiplier="0.3" id="56b-0F-LXB"/>
                             <constraint firstItem="ehR-69-TAl" firstAttribute="trailing" secondItem="bFM-KO-bBw" secondAttribute="trailing" id="GuL-Qo-cJz"/>
@@ -97,7 +99,6 @@
                             <constraint firstItem="MVb-8U-gVD" firstAttribute="width" secondItem="ehR-69-TAl" secondAttribute="width" id="gqN-Zv-5du"/>
                             <constraint firstItem="bFM-KO-bBw" firstAttribute="top" secondItem="ehR-69-TAl" secondAttribute="top" id="irf-jb-Ytb"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ehR-69-TAl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ручной ввод" id="hUH-YT-jly">
                         <barButtonItem key="backBarButtonItem" title=" " id="gkb-UO-auq"/>
@@ -118,17 +119,17 @@
             <objects>
                 <viewController storyboardIdentifier="EndTestViewController" hidesBottomBarWhenPushed="YES" id="yq7-K3-pI9" customClass="EndTestViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nr0-0E-nIT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тест пройден!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-8R-pat">
-                                <rect key="frame" x="16" y="60" width="288" height="30"/>
+                                <rect key="frame" x="16" y="104" width="382" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-2A-8nG" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
-                                <rect key="frame" x="16" y="120" width="136" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-2A-8nG" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                <rect key="frame" x="16" y="164" width="183" height="48"/>
                                 <color key="backgroundColor" red="0.0" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="UcP-GT-LwG"/>
@@ -143,8 +144,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmC-bX-vu7" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
-                                <rect key="frame" x="168" y="120" width="136" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmC-bX-vu7" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                <rect key="frame" x="215" y="164" width="183" height="48"/>
                                 <color key="backgroundColor" red="0.1058823529" green="0.36078431370000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="mmn-T4-Gzq"/>
@@ -160,7 +161,8 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XGg-V2-DdW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QrK-2A-8nG" firstAttribute="leading" secondItem="XGg-V2-DdW" secondAttribute="leading" constant="16" id="0OC-OP-e9v"/>
                             <constraint firstItem="XCM-8R-pat" firstAttribute="leading" secondItem="XGg-V2-DdW" secondAttribute="leading" constant="16" id="8V2-WN-zT0"/>
@@ -172,7 +174,6 @@
                             <constraint firstItem="QrK-2A-8nG" firstAttribute="top" secondItem="XCM-8R-pat" secondAttribute="bottom" constant="30" id="z4Q-RP-bPy"/>
                             <constraint firstItem="RmC-bX-vu7" firstAttribute="leading" secondItem="QrK-2A-8nG" secondAttribute="trailing" constant="16" id="zfN-re-g5a"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XGg-V2-DdW"/>
                     </view>
                     <connections>
                         <outlet property="againButton" destination="QrK-2A-8nG" id="2dz-tS-EAB"/>
@@ -188,45 +189,33 @@
             <objects>
                 <viewController storyboardIdentifier="PreTestViewController" hidesBottomBarWhenPushed="YES" id="ood-L4-oUS" customClass="PreTestViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RCQ-jd-mT3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-gV-4mV">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1S-pf-Qw4">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fK-Me-xbB">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="194"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="286.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J41-Am-IMg" customClass="SwitchView" customModule="Thesis" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="8" width="240" height="154.5"/>
+                                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="334" placeholderIntrinsicHeight="258.5" translatesAutoresizingMaskIntoConstraints="NO" id="J41-Am-IMg" customClass="SwitchView" customModule="Thesis" customModuleProvider="target">
+                                                        <rect key="frame" x="40" y="8" width="334" height="258.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wr-OK-STO">
-                                                        <rect key="frame" x="16" y="167.5" width="288" height="21.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="21.5" id="Bbe-fU-MKi"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="7wr-OK-STO" secondAttribute="bottom" constant="5" id="KSH-iR-6YP"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7wr-OK-STO" secondAttribute="trailing" constant="16" id="M9j-4k-rKb"/>
-                                                    <constraint firstItem="7wr-OK-STO" firstAttribute="top" secondItem="J41-Am-IMg" secondAttribute="bottom" constant="5" id="N14-OT-ZPZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="J41-Am-IMg" secondAttribute="trailing" constant="40" id="N9u-h9-bDf"/>
                                                     <constraint firstItem="J41-Am-IMg" firstAttribute="top" secondItem="8fK-Me-xbB" secondAttribute="top" constant="8" id="NrT-wG-Fq1"/>
+                                                    <constraint firstAttribute="bottom" secondItem="J41-Am-IMg" secondAttribute="bottom" constant="20" id="d9F-oU-w9A"/>
                                                     <constraint firstItem="J41-Am-IMg" firstAttribute="leading" secondItem="8fK-Me-xbB" secondAttribute="leading" constant="40" id="g4P-2s-GRa"/>
-                                                    <constraint firstItem="7wr-OK-STO" firstAttribute="leading" secondItem="8fK-Me-xbB" secondAttribute="leading" constant="16" id="tXf-Yc-H62"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVv-Zp-gwL" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="210" width="136" height="48"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVv-Zp-gwL" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="302.5" width="183" height="48"/>
                                                 <color key="backgroundColor" red="0.0" green="0.62745098039215685" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="SPg-iz-XSa"/>
@@ -241,8 +230,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NQ-Q4-7Oo" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
-                                                <rect key="frame" x="168" y="210" width="136" height="48"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NQ-Q4-7Oo" customClass="CornerButton" customModule="Thesis" customModuleProvider="target">
+                                                <rect key="frame" x="215" y="302.5" width="183" height="48"/>
                                                 <color key="backgroundColor" red="0.1058823529" green="0.36078431370000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="HOa-2T-1G1"/>
@@ -258,7 +247,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="4NQ-Q4-7Oo" firstAttribute="leading" secondItem="FVv-Zp-gwL" secondAttribute="trailing" constant="16" id="5Eg-J0-BrM"/>
                                             <constraint firstAttribute="trailing" secondItem="8fK-Me-xbB" secondAttribute="trailing" id="5bo-P3-S2A"/>
@@ -267,7 +256,6 @@
                                             <constraint firstItem="FVv-Zp-gwL" firstAttribute="top" secondItem="8fK-Me-xbB" secondAttribute="bottom" constant="16" id="HBW-NF-YCW"/>
                                             <constraint firstItem="8fK-Me-xbB" firstAttribute="leading" secondItem="o1S-pf-Qw4" secondAttribute="leading" id="Ppa-in-hlx"/>
                                             <constraint firstItem="FVv-Zp-gwL" firstAttribute="leading" secondItem="o1S-pf-Qw4" secondAttribute="leading" constant="16" id="Wny-Im-jSH"/>
-                                            <constraint firstItem="8fK-Me-xbB" firstAttribute="height" secondItem="o1S-pf-Qw4" secondAttribute="height" multiplier="0.37" id="b7v-Fo-iHh"/>
                                             <constraint firstItem="8fK-Me-xbB" firstAttribute="top" secondItem="o1S-pf-Qw4" secondAttribute="top" id="sIC-Sq-Sef"/>
                                             <constraint firstAttribute="trailing" secondItem="4NQ-Q4-7Oo" secondAttribute="trailing" constant="16" id="xbA-Iw-u8E"/>
                                         </constraints>
@@ -283,21 +271,20 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rBt-Ba-Dag"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jUh-gV-4mV" firstAttribute="top" secondItem="rBt-Ba-Dag" secondAttribute="top" id="8MH-5U-HiJ"/>
                             <constraint firstAttribute="trailing" secondItem="jUh-gV-4mV" secondAttribute="trailing" id="QQt-5j-znE"/>
                             <constraint firstItem="rBt-Ba-Dag" firstAttribute="bottom" secondItem="jUh-gV-4mV" secondAttribute="bottom" id="XIA-Nj-T56"/>
                             <constraint firstItem="jUh-gV-4mV" firstAttribute="leading" secondItem="rBt-Ba-Dag" secondAttribute="leading" id="iaf-QE-tLE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rBt-Ba-Dag"/>
                     </view>
                     <navigationItem key="navigationItem" title="Превью" id="mbJ-M7-fLG">
                         <barButtonItem key="backBarButtonItem" title=" " id="D7W-On-if8"/>
                     </navigationItem>
                     <connections>
                         <outlet property="allreadyButton" destination="FVv-Zp-gwL" id="vaQ-Ge-Wwe"/>
-                        <outlet property="answerLabel" destination="7wr-OK-STO" id="FUk-B3-l7a"/>
                         <outlet property="nextButton" destination="4NQ-Q4-7Oo" id="uKm-l9-bh4"/>
                         <outlet property="switchView" destination="J41-Am-IMg" id="iTb-Pn-HeP"/>
                         <segue destination="rRk-DU-DHA" kind="push" id="j14-0y-mWj"/>
@@ -312,30 +299,30 @@
             <objects>
                 <viewController storyboardIdentifier="ChoiceTestViewController" hidesBottomBarWhenPushed="YES" id="rRk-DU-DHA" customClass="ChoiceTestViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4WX-nF-LWS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeM-do-MuP">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcr-ll-1UH">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Pu-qe-SuK">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="194"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="286.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-CP-qJi" customClass="SwitchView" customModule="Thesis" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="8" width="240" height="152"/>
+                                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="334" placeholderIntrinsicHeight="244.5" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-CP-qJi" customClass="SwitchView" customModule="Thesis" customModuleProvider="target">
+                                                        <rect key="frame" x="40" y="8" width="334" height="244.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите правильный ответ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veq-Sy-Nrw">
-                                                        <rect key="frame" x="16" y="165" width="288" height="21"/>
+                                                        <rect key="frame" x="16" y="257.5" width="382" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Veq-Sy-Nrw" secondAttribute="trailing" constant="16" id="0Wj-41-fCr"/>
                                                     <constraint firstItem="Veq-Sy-Nrw" firstAttribute="leading" secondItem="3Pu-qe-SuK" secondAttribute="leading" constant="16" id="ANg-kw-NvN"/>
@@ -347,9 +334,9 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-wG-T2Y">
-                                                <rect key="frame" x="0.0" y="194" width="320" height="330"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gyC-31-ltq">
+                                                <rect key="frame" x="0.0" y="286.5" width="414" height="487.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Peh-7z-llV">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -358,9 +345,8 @@
                                                 <cells/>
                                             </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="3Pu-qe-SuK" firstAttribute="height" secondItem="lcr-ll-1UH" secondAttribute="height" multiplier="0.37" id="418-U8-BUT"/>
                                             <constraint firstAttribute="bottom" secondItem="iKN-wG-T2Y" secondAttribute="bottom" id="6KE-LJ-cFp"/>
                                             <constraint firstItem="iKN-wG-T2Y" firstAttribute="leading" secondItem="lcr-ll-1UH" secondAttribute="leading" id="9X5-lY-sMx"/>
                                             <constraint firstItem="3Pu-qe-SuK" firstAttribute="leading" secondItem="lcr-ll-1UH" secondAttribute="leading" id="MCh-SQ-gsc"/>
@@ -381,20 +367,19 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="B9Z-VQ-Cqw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HeM-do-MuP" firstAttribute="top" secondItem="B9Z-VQ-Cqw" secondAttribute="top" id="1sn-Cz-9EP"/>
                             <constraint firstItem="HeM-do-MuP" firstAttribute="leading" secondItem="B9Z-VQ-Cqw" secondAttribute="leading" id="JE9-m3-Cdg"/>
                             <constraint firstItem="B9Z-VQ-Cqw" firstAttribute="bottom" secondItem="HeM-do-MuP" secondAttribute="bottom" id="YLL-F6-sZ3"/>
                             <constraint firstAttribute="trailing" secondItem="HeM-do-MuP" secondAttribute="trailing" id="zG2-me-T27"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="B9Z-VQ-Cqw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Выбор из вариантов" id="ovE-Wu-CyH">
                         <barButtonItem key="backBarButtonItem" title=" " id="4LX-lq-nKV"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="answerLabel" destination="Veq-Sy-Nrw" id="Shl-on-BSM"/>
                         <outlet property="collectionView" destination="iKN-wG-T2Y" id="cqC-W1-ePh"/>
                         <outlet property="switchView" destination="l9L-CP-qJi" id="4fU-AA-9XA"/>
                         <segue destination="5Ea-gS-dcM" kind="push" id="Owo-nM-9h1"/>
@@ -409,24 +394,24 @@
             <objects>
                 <viewController storyboardIdentifier="ConstructorTestViewController" hidesBottomBarWhenPushed="YES" id="5Ea-gS-dcM" customClass="ConstructorTestViewController" customModule="Thesis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HWd-x4-716">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6r-4e-Ufw">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJg-Q8-IHB">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFp-c0-qi3">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="263"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3e-l0-Acv" customClass="SwitchView" customModule="Thesis" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="8" width="240" height="162"/>
+                                                        <rect key="frame" x="40" y="8" width="334" height="247"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="n3e-l0-Acv" firstAttribute="leading" secondItem="aFp-c0-qi3" secondAttribute="leading" constant="40" id="ZHr-s4-ePM"/>
                                                     <constraint firstAttribute="trailing" secondItem="n3e-l0-Acv" secondAttribute="trailing" constant="40" id="lMn-oZ-7pd"/>
@@ -435,7 +420,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Соберите слово " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzx-Ui-JjI">
-                                                <rect key="frame" x="16" y="178" width="288" height="36"/>
+                                                <rect key="frame" x="16" y="263" width="382" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="OqZ-ge-CEm"/>
                                                 </constraints>
@@ -444,8 +429,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Oi-39-bye">
-                                                <rect key="frame" x="20" y="214" width="280" height="290"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <rect key="frame" x="20" y="299" width="374" height="455"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ANq-pi-GNq">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -455,7 +440,7 @@
                                                 <cells/>
                                             </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Hzx-Ui-JjI" firstAttribute="top" secondItem="aFp-c0-qi3" secondAttribute="bottom" id="2ik-4r-QKl"/>
                                             <constraint firstAttribute="trailing" secondItem="3Oi-39-bye" secondAttribute="trailing" constant="20" id="6Bf-AE-p9L"/>
@@ -481,14 +466,14 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jNC-rq-PMT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="y6r-4e-Ufw" firstAttribute="leading" secondItem="jNC-rq-PMT" secondAttribute="leading" id="COI-l4-Ypz"/>
                             <constraint firstItem="jNC-rq-PMT" firstAttribute="bottom" secondItem="y6r-4e-Ufw" secondAttribute="bottom" id="Knj-Ic-NdL"/>
                             <constraint firstAttribute="trailing" secondItem="y6r-4e-Ufw" secondAttribute="trailing" id="Suh-Ks-Bwk"/>
                             <constraint firstItem="y6r-4e-Ufw" firstAttribute="top" secondItem="jNC-rq-PMT" secondAttribute="top" id="miK-YX-Fwc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jNC-rq-PMT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Конструктор слов" id="HwN-Js-Rpp">
                         <barButtonItem key="backBarButtonItem" title=" " id="YBk-9v-2Ac"/>
@@ -509,7 +494,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="940-4t-SZj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zie-OV-6cf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -523,4 +508,35 @@
             <point key="canvasLocation" x="0.0" y="144.71830985915494"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4NQ-Q4-7Oo">
+            <size key="intrinsicContentSize" width="69" height="34"/>
+        </designable>
+        <designable name="FVv-Zp-gwL">
+            <size key="intrinsicContentSize" width="85" height="34"/>
+        </designable>
+        <designable name="J41-Am-IMg">
+            <size key="intrinsicContentSize" width="334" height="258.5"/>
+        </designable>
+        <designable name="QrK-2A-8nG">
+            <size key="intrinsicContentSize" width="72" height="34"/>
+        </designable>
+        <designable name="RmC-bX-vu7">
+            <size key="intrinsicContentSize" width="57" height="34"/>
+        </designable>
+        <designable name="iSQ-vb-Yum">
+            <size key="intrinsicContentSize" width="81" height="34"/>
+        </designable>
+        <designable name="j9w-Cn-gpq">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="l9L-CP-qJi">
+            <size key="intrinsicContentSize" width="334" height="244.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

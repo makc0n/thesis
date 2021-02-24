@@ -37,7 +37,12 @@ class ConstructorTestViewModel: ViewModel{
     override func subscribe() {
         currentWord.accept(words.removeFirst())
         
-        currentWord.unwrap().map({ $0.eng.shuffled().map(ConstructorItemModel.init) }).bind(to: models).disposed(by: disposeBag)
+        currentWord.unwrap().map({ $0.translate.shuffled().groupping().map(ConstructorItemModel.init) }).bind(to: models).disposed(by: disposeBag)
+        
+        currentWord.bind(onNext: { [weak self] _ in
+            self?.currentAttempt = 0
+            self?.answer.accept("")
+        }).disposed(by: disposeBag)
         
         cellSelected.bind(onNext: {[weak self] cellModel in
             self?.cellSelectedAction(cellModel: cellModel)
@@ -66,19 +71,16 @@ class ConstructorTestViewModel: ViewModel{
 
         if answerResult == .correct {
             self.answer.accept(answer)
-            cellModel.hideCell.onNext(())
-            models.accept(models.value.filter({ $0 != cellModel }))
+            cellModel.decrementLetter()
             
-            if answer == currentWord.eng {
+            if answer == currentWord.translate {
                 self.correctAnswer.onNext(())
-                self.currentAttempt = 0
                 return
             }
         } else {
             cellModel.failSelect.onNext(())
             if self.currentAttempt >= testConfiguration.currentQuest.attemptCount {
                 self.uncorrectAnswer.onNext(())
-                self.currentAttempt = 0
                 return
             }
         }
@@ -99,8 +101,6 @@ class ConstructorTestViewModel: ViewModel{
             return
         }
         self.currentWord.accept(self.words.removeFirst())
-        
-        
     }
     
 }

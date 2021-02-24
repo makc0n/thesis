@@ -51,8 +51,8 @@ class MapperConfiguration {
         Mapper.register(mappingAlgorithm: { (webWord:WebWord) -> Word in
                         
             return Word(id: Int(arc4random()),
-                        rus: webWord.rus,
-                        eng: webWord.eng,
+                        word: webWord.rus,
+                        translate: webWord.eng,
                         transcription: webWord.transcription,
                         imageURL: "",
                         score: 0.0,
@@ -65,8 +65,8 @@ class MapperConfiguration {
         Mapper.register(mappingAlgorithm: { (word:Word) -> RealmWord in
             let realmWord = RealmWord()
             realmWord.id = word.id
-            realmWord.rus = word.rus
-            realmWord.eng = word.eng
+            realmWord.rus = word.word
+            realmWord.eng = word.translate
             realmWord.imageURL = word.imageURL
             realmWord.score = word.score
             realmWord.priority = word.priority
@@ -79,8 +79,8 @@ class MapperConfiguration {
 
         Mapper.register(mappingAlgorithm: { (realmWord:RealmWord) -> Word in
             return Word(id: realmWord.id,
-                        rus: realmWord.rus,
-                        eng: realmWord.eng,
+                        word: realmWord.rus,
+                        translate: realmWord.eng,
                         transcription: realmWord.transcription,
                         imageURL: realmWord.imageURL,
                         score: realmWord.score,

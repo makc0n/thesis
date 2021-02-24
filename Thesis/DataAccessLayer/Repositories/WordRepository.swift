@@ -21,11 +21,6 @@ class WordRepository: WordRepositoryProtocol {
     }
     
     func getWords(wordsIDs: [Int]) -> Observable<[Word]> {
-        
-        if wordsIDs.isEmpty {
-            return Observable.collection(from: self.realm.objects(RealmWord.self).sorted(byKeyPath: "eng")).map({ $0.map(Mapper.map) })
-        }
-        
         return Observable.collection(from: self.realm.objects(RealmWord.self).filter("id IN %@", wordsIDs).sorted(byKeyPath: "eng")).map({ $0.map(Mapper.map) })
     }
     

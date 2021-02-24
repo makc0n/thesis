@@ -12,24 +12,34 @@ import RxMVVM
 class ConstructorCollectionViewCell: CollectionViewCell<ConstructorItemModel> {
     @IBOutlet weak var frameView: CustomView!
     @IBOutlet weak var letterLabel: UILabel!
+    @IBOutlet weak var countView: CustomView!
+    @IBOutlet weak var countLabel: UILabel!
     
     override func bind(viewModel: ConstructorItemModel) {
         viewModel.letter.map({String($0)}).bind(to: letterLabel.rx.text).disposed(by: reusableDisposeBag)
+        
         viewModel.failSelect.bind(onNext: {[weak self] _ in            
-            UIView.animate(withDuration: 0.3,delay: 0.0,options: .autoreverse, animations:{
-                self?.frameView.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 0.7608625856)
-            }, completion: {_ in
-                self?.frameView.backgroundColor = .white
-            })
-            }).disposed(by: reusableDisposeBag)
-        viewModel.hideCell.bind { [weak self](_) in
-            self?.isUserInteractionEnabled = false
-            self?.isHidden = true
+            self?.failAnimation()
+        }).disposed(by: reusableDisposeBag)
+        
+        viewModel.count.bind { [weak self] count in
+            self?.isUserInteractionEnabled = count != 0
+            self?.isHidden = count == 0
+            self?.countView.isHidden = count < 2
+            self?.countLabel.text = "\(count)"
         }.disposed(by: reusableDisposeBag)
+        
         frameView.backgroundColor = .white
-        self.isUserInteractionEnabled = true
-        self.isHidden = false
+        
         super.bind(viewModel: viewModel)
+    }
+    
+    private func failAnimation() {
+        UIView.animate(withDuration: 0.2,delay: 0.0, options: [.autoreverse, .allowUserInteraction], animations:{
+            self.frameView.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 0.5)
+        }, completion: {_ in
+            self.frameView.backgroundColor = .white
+        })
     }
     
     

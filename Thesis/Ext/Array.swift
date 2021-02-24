@@ -15,4 +15,21 @@ extension Array where Element == Int {
         return sum / self.count
     }
     
+    
+    
+}
+
+extension Array where Element: Hashable {
+    
+    func groupping() -> [[Element]] {
+        let temp = Set(self)
+        var result = [[Element]]()
+        
+        for element in temp {
+            let count = self.filter({ $0 == element }).count
+            result.append(Array(repeating: element, count: count))
+        }
+        
+        return result
+    }
 }

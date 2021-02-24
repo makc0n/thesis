@@ -18,8 +18,8 @@ class WordItemModel: ViewModel {
     let isEdited = BehaviorRelay<Bool>(value:false)
     var isSelected = BehaviorRelay<Bool>(value: false)
         
-    lazy var rus = Observable.just(word.rus)
-    lazy var eng = Observable.just(word.eng)
+    lazy var rus = Observable.just(word.word)
+    lazy var eng = Observable.just(word.translate)
     
     init(word: Word) {
         self.word = word

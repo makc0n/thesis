@@ -66,7 +66,7 @@ class ChoiceTestViewModel: ViewModel{
             return
         }
         let attempt: AttemptType = currentAttempt == 0 ? .firstAttempt : .correctionAttempt(attempt: currentAttempt)
-        let answerResult = testConfiguration.verifyAnswer(wordID: currentWord.id, answer: cellModel.word.eng, attempt: attempt)
+        let answerResult = testConfiguration.verifyAnswer(wordID: currentWord.id, answer: cellModel.word.translate, attempt: attempt)
         
         switch answerResult {
         case .correct:
@@ -86,6 +86,7 @@ class ChoiceTestViewModel: ViewModel{
             return
         }
         self.currentWord.accept(self.words.removeFirst())
+        self.currentAttempt = 0
         
     }
     
@@ -96,6 +97,7 @@ class ChoiceTestViewModel: ViewModel{
                 return
             }
             self.currentWord.accept(self.words.removeFirst())
+            self.currentAttempt = 0
         }
         
     }

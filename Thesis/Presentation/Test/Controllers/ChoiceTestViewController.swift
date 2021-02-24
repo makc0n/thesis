@@ -15,13 +15,13 @@ class ChoiceTestViewController: ViewController<ChoiceTestViewModel>,UICollection
     
     @IBOutlet weak var switchView: SwitchView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var answerLabel: UILabel!
     
     typealias TestSection = SectionModel<String,ChoiceItemModel>
     let dataSource: RxCollectionViewSectionedReloadDataSource<TestSection> = CollectionViewConnector.reloadDataSource(ChoiceCollectionViewCell.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.switchView.labelsEnabled = [.word]
         CollectionViewConnector.register(ChoiceCollectionViewCell.self, for: collectionView)
     }    
     
@@ -41,9 +41,11 @@ class ChoiceTestViewController: ViewController<ChoiceTestViewModel>,UICollection
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cell = self.dataSource.sectionModels[indexPath.section].items[indexPath.row]
         
-        let width = (self.collectionView.frame.width - 30) / 2
-        return CGSize(width: width, height: 58 )
+        let size = NSAttributedString(string: cell.word.translate, attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .semibold)]).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude), options: .truncatesLastVisibleLine, context: nil).size
+//        let width = (self.collectionView.frame.width - 30) / 2
+        return CGSize(width: size.width * 1.5 + 16, height: 58 )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,18 +25,51 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aR4-1J-g6u" customClass="CustomView" customModule="Thesis" customModuleProvider="target">
+                                <rect key="frame" x="30" y="2" width="16" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfA-wz-cSj">
+                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95465315985925414" green="0.95465315985925414" blue="0.95465315985925414" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZfA-wz-cSj" secondAttribute="bottom" id="N2p-8Z-mD2"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZfA-wz-cSj" secondAttribute="trailing" id="P7X-bD-vu5"/>
+                                    <constraint firstItem="ZfA-wz-cSj" firstAttribute="top" secondItem="aR4-1J-g6u" secondAttribute="top" id="Q7q-8g-06w"/>
+                                    <constraint firstAttribute="height" constant="16" id="Sd1-tC-Ydx"/>
+                                    <constraint firstAttribute="width" constant="16" id="WVW-HZ-f6W"/>
+                                    <constraint firstItem="ZfA-wz-cSj" firstAttribute="leading" secondItem="aR4-1J-g6u" secondAttribute="leading" id="ltL-i5-tyf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="opaqueSeparatorColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="aR4-1J-g6u" firstAttribute="top" secondItem="UNa-gB-mqX" secondAttribute="top" constant="2" id="6oj-3L-XHf"/>
                             <constraint firstAttribute="width" secondItem="UNa-gB-mqX" secondAttribute="height" multiplier="1:1" id="Vtl-23-VYT"/>
                             <constraint firstAttribute="bottom" secondItem="8Tv-VY-7G2" secondAttribute="bottom" id="YIl-Ux-YDX"/>
                             <constraint firstItem="8Tv-VY-7G2" firstAttribute="top" secondItem="UNa-gB-mqX" secondAttribute="top" constant="3" id="gDj-1h-x3E"/>
                             <constraint firstItem="8Tv-VY-7G2" firstAttribute="leading" secondItem="UNa-gB-mqX" secondAttribute="leading" id="s84-Fb-tX2"/>
+                            <constraint firstAttribute="trailing" secondItem="aR4-1J-g6u" secondAttribute="trailing" constant="2" id="wr6-UJ-2Of"/>
                             <constraint firstAttribute="trailing" secondItem="8Tv-VY-7G2" secondAttribute="trailing" id="wzO-LJ-j9N"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="25"/>
+                                <real key="value" value="7"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="1"/>
@@ -55,10 +88,17 @@
                 <constraint firstItem="UNa-gB-mqX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="b9x-UY-Y0F"/>
             </constraints>
             <connections>
+                <outlet property="countLabel" destination="ZfA-wz-cSj" id="8ph-UI-zK0"/>
+                <outlet property="countView" destination="aR4-1J-g6u" id="v7h-3M-KZF"/>
                 <outlet property="frameView" destination="UNa-gB-mqX" id="NE7-CA-0Fb"/>
                 <outlet property="letterLabel" destination="8Tv-VY-7G2" id="hYA-7Q-Tlg"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

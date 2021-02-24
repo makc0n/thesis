@@ -92,19 +92,19 @@ class Trainer {
     
     private func computeConstructorConcurrence(word: Word, answer: String) -> AnswerResult {
         
-        return word.eng.lowercased().hasPrefix(answer.lowercased()) ? .correct : .uncorrect
+        return word.translate.lowercased().hasPrefix(answer.lowercased()) ? .correct : .uncorrect
     }
     
     private func computeConcurrence( word: Word, withAnswer answer: String) -> AnswerResult {
         
-        let original = word.eng.trimmingCharacters(in: .whitespaces).lowercased()
+        let original = word.translate.trimmingCharacters(in: .whitespaces).lowercased()
         let input = answer.trimmingCharacters(in: .whitespaces).lowercased()
         if original == input { return .correct }
         
         let realm = Realms.words.create()
         let synonyms: [Word] = realm.objects(RealmWord.self).filter("id IN %@", word.synonymsID).map(Mapper.map)
         
-        if synonyms.contains(where: { $0.eng.trimmingCharacters(in: CharacterSet(charactersIn: " ")).lowercased() == input }) { return .synonym}
+        if synonyms.contains(where: { $0.translate.trimmingCharacters(in: CharacterSet(charactersIn: " ")).lowercased() == input }) { return .synonym}
         
         return .uncorrect
     }

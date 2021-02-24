@@ -22,6 +22,7 @@ class ConstructorTestViewController : ViewController<ConstructorTestViewModel>,U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.switchView.labelsEnabled = [.word]
         CollectionViewConnector.register(ConstructorCollectionViewCell.self, for: collectionView)
     }
     

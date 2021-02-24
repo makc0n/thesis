@@ -25,8 +25,8 @@ class PreTestViewModel: ViewModel{
     let acceptWord = PublishSubject<Void>()
     let willAppear = PublishSubject<Void>()
     
-    lazy var wordEng = currentWord.unwrap().map({$0.eng})
-    lazy var wordRus = currentWord.unwrap().map({$0.rus})
+    lazy var wordEng = currentWord.unwrap().map({$0.translate})
+    lazy var wordRus = currentWord.unwrap().map({$0.word})
     lazy var wordTrascription = currentWord.unwrap().map({$0.transcription})
     
     init(testConfiguration: Test ) {

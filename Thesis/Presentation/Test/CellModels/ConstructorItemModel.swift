@@ -13,15 +13,16 @@ import RxSwift
 
 class ConstructorItemModel: ViewModel {
     
-    let letter:BehaviorRelay<Character>
+    let letter: BehaviorRelay<Character>
+    let count: BehaviorRelay<Int>
     let failSelect = PublishSubject<Void>()
-    let hideCell = PublishSubject<Void>()
     
-    init(_ letter:Character){
-        self.letter = BehaviorRelay<Character>(value: letter)
+    init(_ letters: [Character] ){
+        self.letter = BehaviorRelay<Character>(value: letters.first!)
+        self.count = BehaviorRelay(value: letters.count)
     }
     
-    override func subscribe() {
-        super.subscribe()
+    func decrementLetter() {
+        self.count.accept(self.count.value - 1)
     }
 }

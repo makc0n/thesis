@@ -23,8 +23,6 @@ class SimpleInputTestViewModel: ViewModel{
     let correctAnswer = PublishSubject<Void>()
     
     let currentWord = BehaviorRelay<Word?>(value: nil)
-    lazy var synonymsID = currentWord.map({ $0?.synonymsID})
-    lazy var synonyms = BehaviorRelay<[Word]>(value: [])
     
     init(testConfiguration: Test) {
         self.words = testConfiguration.words
@@ -32,16 +30,12 @@ class SimpleInputTestViewModel: ViewModel{
     }
     
     override func subscribe() {
-        super.subscribe()
-        
-        synonymsID.unwrap().flatMap({ ids -> Observable<[Word]> in
-            return GetWords.default.use(input: .init(wordsIDs: ids)).map({$0.words})
-        }).bind(to: synonyms).disposed(by: disposeBag)
-        
+        self.currentWord.accept(self.words.removeFirst())
         answerText.bind(onNext: answerAction).disposed(by: disposeBag)
         correctAnswer.bind(onNext: correctAnswerAction).disposed(by: disposeBag)
         uncorrectAnswer.bind(onNext: uncorrectAnswerAction).disposed(by: disposeBag)
         
+        super.subscribe()
     }
     
     private func answerAction( answer: String ) {
@@ -71,6 +65,7 @@ class SimpleInputTestViewModel: ViewModel{
             self.testConfiguration.nextQuest()
             return
         }
+        currentAttempt = 0
         self.currentWord.accept(self.words.removeFirst())
         
     }
@@ -81,6 +76,7 @@ class SimpleInputTestViewModel: ViewModel{
                 self.testConfiguration.nextQuest()
                 return
             }
+            currentAttempt = 0
             self.currentWord.accept(self.words.removeFirst())
         }
         

@@ -32,7 +32,7 @@ class SimpleInputTestViewController: ViewController<SimpleInputTestViewModel>, U
         super.viewDidLoad()
         textField.delegate = self
         textField.becomeFirstResponder()
-        
+        self.switchView.labelsEnabled = [.word]
         
     }
     

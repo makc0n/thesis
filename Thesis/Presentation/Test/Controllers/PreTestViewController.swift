@@ -12,17 +12,21 @@ import RxSwift
 
 class PreTestViewController: ViewController<PreTestViewModel> {
     
-    @IBOutlet weak var answerLabel: UILabel!    
     @IBOutlet weak var nextButton: CornerButton!
     @IBOutlet weak var allreadyButton: CornerButton!
     @IBOutlet weak var switchView: SwitchView!
     
     lazy var loaderView = LoaderViewInteractor(for: self.view)
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.switchView.labelsEnabled = [.word, .translate, .trascrition]
+    }
+    
     override func bind(viewModel: PreTestViewModel) {
         
         viewModel.currentWord.unwrap().bind(to: switchView.rx.word).disposed(by: disposeBag)
-        viewModel.currentWord.unwrap().map({$0.eng}).bind(to: answerLabel.rx.text).disposed(by: disposeBag)
         
         viewModel.isLoading.bind(onNext: {[weak self] isLoading in
             self?.loaderView.set(isLoading)
@@ -40,11 +44,7 @@ class PreTestViewController: ViewController<PreTestViewModel> {
         super.bind(viewModel: viewModel)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-    }
+   
     
     
     

@@ -13,8 +13,8 @@ import RxSwift
 class ChoiceItemModel: ViewModel{
     
     let word: Word
-    lazy var wordRus = Observable.just(word.rus)
-    lazy var wordEng = Observable.just(word.eng)
+    lazy var wordRus = Observable.just(word.word)
+    lazy var wordEng = Observable.just(word.translate)
     
     init(_ word: Word){
         self.word = word

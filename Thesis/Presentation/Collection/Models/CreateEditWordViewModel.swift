@@ -23,8 +23,8 @@ class CreateEditWordViewModel: ViewModel{
     let addSynonym = PublishSubject<Void>()
     let modelDeleted = PublishSubject<WordItemModel>()
     
-    lazy var eng = BehaviorRelay<String?>(value: self.word.eng)
-    lazy var rus = BehaviorRelay<String?>(value: self.word.rus)
+    lazy var eng = BehaviorRelay<String?>(value: self.word.translate)
+    lazy var rus = BehaviorRelay<String?>(value: self.word.word)
     lazy var imageURL = BehaviorRelay<String?>(value: self.word.imageURL)
     lazy var transcription = BehaviorRelay<String?>(value: self.word.transcription)
     lazy var synonymsIDs = BehaviorRelay<[Int]>(value: self.word.synonymsID)
@@ -54,6 +54,7 @@ class CreateEditWordViewModel: ViewModel{
     override func subscribe() {
         
         synonymsIDs.flatMap({ IDs in
+            
             return GetWords.default.use(input: GetWords.Input(wordsIDs: IDs))
         }).map({$0.words.map(WordItemModel.init)}).bind(to: synonymsItems).disposed(by: disposeBag)
         
@@ -76,8 +77,8 @@ class CreateEditWordViewModel: ViewModel{
         }
         
         var newWord = self.word
-        newWord.rus = rus
-        newWord.eng = eng
+        newWord.word = rus
+        newWord.translate = eng
         newWord.transcription = transcription
         
         AddWords.default.createUseCase(input: AddWords.Input(words: [newWord])).subscribe().disposed(by: disposeBag)

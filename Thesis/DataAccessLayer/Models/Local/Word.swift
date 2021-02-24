@@ -11,8 +11,8 @@ import Foundation
 struct Word {
     
     let id: Int
-    var rus: String
-    var eng: String
+    var word: String
+    var translate: String
     var transcription: String
     var imageURL: String
     var score: Double
@@ -24,8 +24,8 @@ struct Word {
     
     static func defaultWord() -> Word {
         return Word(id: Int(arc4random()),
-                    rus: "",
-                    eng: "",
+                    word: "",
+                    translate: "",
                     transcription: "",
                     imageURL: "",
                     score: 0.0,
