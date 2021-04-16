@@ -13,7 +13,7 @@ class CollectionListTableViewCell: TableViewCell<CollectionListItemModel> {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var widthOfProgressLabel: NSLayoutConstraint!
-    @IBOutlet weak var customView: CustomView!
+    @IBOutlet weak var customView: View!
     
     override func bind(viewModel: CollectionListItemModel) {
         

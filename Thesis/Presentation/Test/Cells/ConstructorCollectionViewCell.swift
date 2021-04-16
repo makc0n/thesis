@@ -10,9 +10,9 @@ import UIKit
 import RxMVVM
 
 class ConstructorCollectionViewCell: CollectionViewCell<ConstructorItemModel> {
-    @IBOutlet weak var frameView: CustomView!
+    @IBOutlet weak var frameView: View!
     @IBOutlet weak var letterLabel: UILabel!
-    @IBOutlet weak var countView: CustomView!
+    @IBOutlet weak var countView: View!
     @IBOutlet weak var countLabel: UILabel!
     
     override func bind(viewModel: ConstructorItemModel) {

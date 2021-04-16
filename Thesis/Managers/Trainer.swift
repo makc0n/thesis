@@ -113,8 +113,8 @@ class Trainer {
         var multiplication = 1.0
         
         switch testType {
-        case let .custom(quests, _, _):
-            let avg = quests.map({$0.questType.rawValue}).avg()
+        case let .custom(customTest):
+            let avg = customTest.questsQueue.values.map({ $0.rawValue }).avg()
             multiplication -= self.testTypeMultiplicates[avg]
         default:
             multiplication -= self.testTypeMultiplicates[testType.index]

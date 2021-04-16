@@ -60,7 +60,7 @@ class CreateEditWordViewModel: ViewModel{
         
         saveWord.bind(onNext: saveWordAction).disposed(by: disposeBag)
         addSynonym.bind(onNext: addSynonymAction).disposed(by: disposeBag)
-        
+        modelDeleted.bind(onNext: removeSynonymAction(itemModel:)).disposed(by: disposeBag)
         super.subscribe()
     }
     
@@ -72,7 +72,8 @@ class CreateEditWordViewModel: ViewModel{
         }
         
         if rus.isEmpty || eng.isEmpty {
-            AlertConstructor(title: nil, message: "Обязательные поля не заполнены", style: .alert).addAction(title: "Ok", style: .cancel, actionKey: "").show()
+            AlertConstructor(title: nil, message: "Обязательные поля не заполнены", style: .alert)
+                .addAction(title: "Ok", style: .cancel, actionKey: "").show()
             return
         }
         
@@ -81,8 +82,11 @@ class CreateEditWordViewModel: ViewModel{
         newWord.translate = eng
         newWord.transcription = transcription
         
-        AddWords.default.createUseCase(input: AddWords.Input(words: [newWord])).subscribe().disposed(by: disposeBag)
-        AddSynonyms.default.createUseCase(input: AddSynonyms.Input(wordID: newWord.id, synonymsIDs: synonymsIDs.value)).subscribe().disposed(by: disposeBag)
+        AddWords.default.createUseCase(input: AddWords.Input(words: [newWord]))
+            .subscribe().disposed(by: disposeBag)
+        AddSynonyms.default.createUseCase(input: AddSynonyms.Input(wordID: newWord.id,
+                                                                   synonymsIDs: synonymsIDs.value))
+            .subscribe().disposed(by: disposeBag)
         
         if collectionID != 0 {
             AddWordsToCollection
@@ -97,6 +101,13 @@ class CreateEditWordViewModel: ViewModel{
     
     private func addSynonymAction(){
         Navigator.navigate(route: NavigationRoutes.addSynonyms(wordID: self.word.id, synonymsIDs: self.synonymsIDs))
+    }
+    
+    private func removeSynonymAction(itemModel: WordItemModel) {
+        RemoveSynonym.default
+            .use(input: .init(wordID: self.word.id, synonymID: itemModel.word.id))
+            .subscribe()
+            .disposed(by: disposeBag)
     }
     
     

@@ -9,20 +9,20 @@
 import Foundation
 import RxMVVM
 import RxSwift
+import RxCocoa
+import RxDataSources
 
 class TestListViewModel: ViewModel{
     
-    let words = GetAllWords.default.use().map({$0.words.map({$0.id})})
-    let fastTestAction = PublishSubject<Void>()
     
     
+    private let itemViewModel = Observable.just(TestListItemType.all.map(TestListItemViewModel.init) )
+    lazy var sections = itemViewModel.map({ [SectionModel<String, TestListItemViewModel>(model: "", items: $0)] })
+        
     override func subscribe() {
         super.subscribe()
         
         
-        fastTestAction.withLatestFrom(words).bind(onNext: { [weak self] ids in
-            self?.fastTest(wordsID: ids)
-        }).disposed(by: disposeBag)
         
     }
     

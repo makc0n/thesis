@@ -149,7 +149,7 @@ class MapperConfiguration {
             if let realmLastRequest = realmLastRequest {
                 return LastRequest(id: realmLastRequest.id,
                                    date: realmLastRequest.date,
-                                   testType: TestType.fromIndex(index: realmLastRequest.testType),
+                                   testType: TestType.fromIndex(index: realmLastRequest.testType) ?? .fast(wordIDs: []),
                                    attepmtType: AttemptType.fromIndex(index: realmLastRequest.attemptType) ,
                                    questType: QuestType(rawValue: realmLastRequest.questType)!,
                                    answerResult: AnswerResult(rawValue: realmLastRequest.answerType) ?? .uncorrect)

@@ -14,37 +14,35 @@ enum TestType: Equatable {
     case onlyChoice(wordIDs: [Int] = [])
     case onlyConstructor(wordIDs: [Int] = [])
     case onlySimpleInput(wordIDs: [Int] = [])
-    case custom(quests: [Quest], countWords: Int, wordIDs: [Int] = [])
+    case custom(_ customTest: CustomTest)
     
     
-    var questTypes: [QuestType] {
+    var questTypes: [Int: QuestType] {
         switch self {
         case .fast:
-            let types: [QuestType] = [ .choice, .constructor, .simpleInput]
-            return [.preview] + types
+            return [0 : .preview, 1: .choice, 2: .constructor, 3: .simpleInput]
         case let .onlyChoice(wordIDs):
-            return wordIDs.isEmpty ? [.preview, .choice] : [.choice]
+            return wordIDs.isEmpty ? [0 : .preview,1 :  .choice] : [0 : .choice]
         case let .onlyConstructor(wordIDs):
-            return wordIDs.isEmpty ? [.preview, .constructor] : [.constructor]
+            return wordIDs.isEmpty ? [0 : .preview,1 :  .constructor] : [0 : .constructor]
         case let .onlySimpleInput(wordIDs):
-            return wordIDs.isEmpty ? [.preview, .simpleInput] : [.simpleInput]
-        case let .custom(quests, _, _): return quests.map({$0.questType})
+            return wordIDs.isEmpty ? [0 : .preview, 1 : .simpleInput] : [0 : .simpleInput]
+        case let .custom(customQuest):
+            return customQuest.questsQueue
         }
     }
     
     var quests: [Quest] {
         switch self {
-        case let .custom(quests, _ , _):
-            return quests
         default:
-            return self.questTypes.map({ Quest(questType: $0) })
+            return self.questTypes.values.map({ Quest(questType: $0) })
         }
     }
     
     var wordsCountNeeded: Int {
         switch self {
-        case let .custom(_, countWords, _):
-            return countWords
+        case let .custom(customTest):
+            return customTest.wordsCountInRequest
         default:
             return 5
         }
@@ -52,8 +50,9 @@ enum TestType: Equatable {
     
     var wordsIDs: [Int] {
         switch self {
-        case let .fast(wordIDs),let .onlyChoice(wordIDs),let .onlySimpleInput(wordIDs),let .onlyConstructor(wordIDs),let .custom(_,_,wordIDs):
+        case let .fast(wordIDs),let .onlyChoice(wordIDs),let .onlySimpleInput(wordIDs),let .onlyConstructor(wordIDs):
             return wordIDs
+        case let .custom(customTest): return customTest.wordIDs
         }
     }
     
@@ -67,13 +66,15 @@ enum TestType: Equatable {
         }
     }
     
-    static func fromIndex(index: Int) -> TestType {
+    static func fromIndex(index: Int, customTest: CustomTest? = nil) -> TestType? {
         switch index {
         case 0: return .fast()
         case 1: return .onlyChoice()
         case 2: return .onlyConstructor()
         case 3: return .onlySimpleInput()
-        default: return .custom(quests: [], countWords: 5, wordIDs: [])
+        default:
+            guard let customTest = customTest else { return nil }
+            return .custom(customTest)
         }
     }
     

@@ -17,6 +17,10 @@ class MainTabBarController: UITabBarController{
     
     override func viewDidLoad() {
         
+        tabBar.backgroundColor = .clear
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
+        
         
         viewControllers = [
             requestController(.testList, tabTitle: "Тест", tabIcon: UIImage(named: "test")),
@@ -30,7 +34,7 @@ class MainTabBarController: UITabBarController{
          
     private func requestController(_ route:NavigationRoutes, tabTitle: String, tabIcon: UIImage?) -> UINavigationController {
         let controller = route.navigationAction.destinationController!
-        let navigationController = UINavigationController(rootViewController: controller)
+        let navigationController = NavigationController(rootViewController: controller)
         navigationController.tabBarItem = UITabBarItem(title: tabTitle, image: tabIcon ?? UIImage(), tag: 0)
         
         return navigationController

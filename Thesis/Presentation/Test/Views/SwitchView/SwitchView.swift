@@ -18,7 +18,7 @@ class SwitchView: UIView {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var wordLabel: UILabel!
     @IBOutlet weak var transcriptionLabel: UILabel!
-    @IBOutlet weak var frameView: CustomView!
+    @IBOutlet weak var frameView: View!
     @IBOutlet weak var translateLabel: UILabel!
     
     private let disposeBag = DisposeBag()
